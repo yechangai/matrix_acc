@@ -1,6 +1,8 @@
 #include "gpu.h"
 
 #include <atomic>
+#include <allocator.h>
+#include <mutex>
 
 #if NCNN_CUDA
 
@@ -92,7 +94,7 @@ static int find_default_cuda_device_index()
     if (g_cuda_gpu_count > 0)
         return 0;
 
-    NCNN_LOGE("no cuda device");
+    printf("no cuda device");
     return -1;
 }
 

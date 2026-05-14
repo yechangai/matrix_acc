@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/test_allocator.dir/allocator.cpp.o"
-  "CMakeFiles/test_allocator.dir/allocator.cpp.o.d"
   "CMakeFiles/test_allocator.dir/test_allocator.cpp.o"
   "CMakeFiles/test_allocator.dir/test_allocator.cpp.o.d"
   "test_allocator"

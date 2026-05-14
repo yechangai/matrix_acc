@@ -169,6 +169,15 @@ public:
     void* get() { return 0; }
 };
 #endif // NCNN_THREADS
+class MutexLockGuard
+{
+public:
+    MutexLockGuard(Mutex& _mutex) : mutex(_mutex) { mutex.lock(); }
+    ~MutexLockGuard() { mutex.unlock(); }
+private:
+    Mutex& mutex;
+};
+
 
 #if __AVX__
 // 所有分配缓冲区的对齐大小
