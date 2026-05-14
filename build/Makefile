@@ -152,6 +152,19 @@ test_allocator/fast:
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_allocator.dir/build.make test/CMakeFiles/test_allocator.dir/build
 .PHONY : test_allocator/fast
 
+#=============================================================================
+# Target rules for targets named test_cuda_allocator
+
+# Build rule for target.
+test_cuda_allocator: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_cuda_allocator
+.PHONY : test_cuda_allocator
+
+# fast build rule for target.
+test_cuda_allocator/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cuda_allocator.dir/build.make test/CMakeFiles/test_cuda_allocator.dir/build
+.PHONY : test_cuda_allocator/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -163,6 +176,7 @@ help:
 	@echo "... test"
 	@echo "... ncnn"
 	@echo "... test_allocator"
+	@echo "... test_cuda_allocator"
 .PHONY : help
 
 

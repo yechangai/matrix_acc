@@ -140,6 +140,20 @@ test_allocator/fast:
 	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_allocator.dir/build.make test/CMakeFiles/test_allocator.dir/build
 .PHONY : test_allocator/fast
 
+# Convenience name for target.
+test/CMakeFiles/test_cuda_allocator.dir/rule:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_cuda_allocator.dir/rule
+.PHONY : test/CMakeFiles/test_cuda_allocator.dir/rule
+
+# Convenience name for target.
+test_cuda_allocator: test/CMakeFiles/test_cuda_allocator.dir/rule
+.PHONY : test_cuda_allocator
+
+# fast build rule for target.
+test_cuda_allocator/fast:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cuda_allocator.dir/build.make test/CMakeFiles/test_cuda_allocator.dir/build
+.PHONY : test_cuda_allocator/fast
+
 test_allocator.o: test_allocator.cpp.o
 .PHONY : test_allocator.o
 
@@ -164,6 +178,30 @@ test_allocator.cpp.s:
 	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_allocator.dir/build.make test/CMakeFiles/test_allocator.dir/test_allocator.cpp.s
 .PHONY : test_allocator.cpp.s
 
+test_cuda_allocator.o: test_cuda_allocator.cpp.o
+.PHONY : test_cuda_allocator.o
+
+# target to build an object file
+test_cuda_allocator.cpp.o:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cuda_allocator.dir/build.make test/CMakeFiles/test_cuda_allocator.dir/test_cuda_allocator.cpp.o
+.PHONY : test_cuda_allocator.cpp.o
+
+test_cuda_allocator.i: test_cuda_allocator.cpp.i
+.PHONY : test_cuda_allocator.i
+
+# target to preprocess a source file
+test_cuda_allocator.cpp.i:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cuda_allocator.dir/build.make test/CMakeFiles/test_cuda_allocator.dir/test_cuda_allocator.cpp.i
+.PHONY : test_cuda_allocator.cpp.i
+
+test_cuda_allocator.s: test_cuda_allocator.cpp.s
+.PHONY : test_cuda_allocator.s
+
+# target to generate assembly for a file
+test_cuda_allocator.cpp.s:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cuda_allocator.dir/build.make test/CMakeFiles/test_cuda_allocator.dir/test_cuda_allocator.cpp.s
+.PHONY : test_cuda_allocator.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -174,9 +212,13 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... test_allocator"
+	@echo "... test_cuda_allocator"
 	@echo "... test_allocator.o"
 	@echo "... test_allocator.i"
 	@echo "... test_allocator.s"
+	@echo "... test_cuda_allocator.o"
+	@echo "... test_cuda_allocator.i"
+	@echo "... test_cuda_allocator.s"
 .PHONY : help
 
 

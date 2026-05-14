@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/test_cuda_allocator.dir/test_cuda_allocator.cpp.o -o test_cuda_allocator  ../src/libncnn.a /usr/lib/x86_64-linux-gnu/libcudart.so /usr/lib/x86_64-linux-gnu/libcudart.so 

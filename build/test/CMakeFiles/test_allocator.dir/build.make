@@ -93,6 +93,7 @@ test_allocator_EXTERNAL_OBJECTS =
 test/test_allocator: test/CMakeFiles/test_allocator.dir/test_allocator.cpp.o
 test/test_allocator: test/CMakeFiles/test_allocator.dir/build.make
 test/test_allocator: src/libncnn.a
+test/test_allocator: /usr/lib/x86_64-linux-gnu/libcudart.so
 test/test_allocator: test/CMakeFiles/test_allocator.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/chang/Desktop/matrix_acc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable test_allocator"
 	cd /home/chang/Desktop/matrix_acc/build/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_allocator.dir/link.txt --verbose=$(VERBOSE)

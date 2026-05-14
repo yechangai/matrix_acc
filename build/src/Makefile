@@ -164,6 +164,30 @@ allocator.cpp.s:
 	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncnn.dir/build.make src/CMakeFiles/ncnn.dir/allocator.cpp.s
 .PHONY : allocator.cpp.s
 
+gpu.o: gpu.cpp.o
+.PHONY : gpu.o
+
+# target to build an object file
+gpu.cpp.o:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncnn.dir/build.make src/CMakeFiles/ncnn.dir/gpu.cpp.o
+.PHONY : gpu.cpp.o
+
+gpu.i: gpu.cpp.i
+.PHONY : gpu.i
+
+# target to preprocess a source file
+gpu.cpp.i:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncnn.dir/build.make src/CMakeFiles/ncnn.dir/gpu.cpp.i
+.PHONY : gpu.cpp.i
+
+gpu.s: gpu.cpp.s
+.PHONY : gpu.s
+
+# target to generate assembly for a file
+gpu.cpp.s:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncnn.dir/build.make src/CMakeFiles/ncnn.dir/gpu.cpp.s
+.PHONY : gpu.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -177,6 +201,9 @@ help:
 	@echo "... allocator.o"
 	@echo "... allocator.i"
 	@echo "... allocator.s"
+	@echo "... gpu.o"
+	@echo "... gpu.i"
+	@echo "... gpu.s"
 .PHONY : help
 
 

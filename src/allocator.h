@@ -1,6 +1,8 @@
 #ifndef ALLOCATOR_H
 #define ALLOCATOR_H
 
+
+
 #if NCNN_THREADS
 #if (defined _WIN32 && !(defined __MINGW32__))
 #define WIN32_LEAN_AND_MEAN

@@ -1,6 +1,7 @@
 #ifndef NCNN_GPU_H
 #define NCNN_GPU_H
 
+
 #if NCNN_CUDA
 
 #include "cuda_util.h"

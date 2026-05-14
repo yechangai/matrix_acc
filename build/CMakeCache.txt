@@ -14,8 +14,8 @@
 # EXTERNAL cache entries
 ########################
 
-//Enable CUDA support for ncnn
-BUILD_CUDA:BOOL=OFF
+//No help, variable specified on the command line.
+BUILD_CUDA:UNINITIALIZED=ON
 
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
@@ -726,6 +726,8 @@ CUDA_nvrtc_builtins_static_LIBRARY-ADVANCED:INTERNAL=1
 CUDA_nvrtc_static_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CUDA_pcsamplingutil_LIBRARY
 CUDA_pcsamplingutil_LIBRARY-ADVANCED:INTERNAL=1
+//Details about finding CUDAToolkit
+FIND_PACKAGE_MESSAGE_DETAILS_CUDAToolkit:INTERNAL=[/usr/local/cuda-13.1/targets/x86_64-linux/include;/usr/include][/usr/lib/x86_64-linux-gnu/libcudart.so][/usr/local/cuda-13.1/bin][v13.1.115()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //linker supports push/pop state

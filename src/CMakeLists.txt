@@ -1,23 +1,9 @@
-<<<<<<< HEAD
-option(BUILD_CUDA "Enable CUDA support for ncnn" OFF)
-
-set(ncnn_SRCS
-    allocator.cpp
-)
-
-find_package(CUDAToolkit QUIET)
-if (BUILD_CUDA AND CUDAToolkit_FOUND)
-    list(APPEND ncnn_SRCS gpu.cpp)
-endif()
-
-add_library(ncnn STATIC ${ncnn_SRCS})
-=======
 add_library(ncnn STATIC
     allocator.cpp
+    gpu.cpp   
 )
->>>>>>> a6769ae18341c128571217d4b26a37721c1ccc3f
-
-if (BUILD_CUDA AND CUDAToolkit_FOUND)
+find_package(CUDAToolkit REQUIRED)
+if (BUILD_CUDA)
     target_compile_definitions(ncnn PRIVATE NCNN_CUDA=1)
     target_link_libraries(ncnn PRIVATE CUDA::cudart)
 endif()

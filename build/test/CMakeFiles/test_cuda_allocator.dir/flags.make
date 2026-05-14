@@ -6,5 +6,5 @@ CXX_DEFINES = -DNCNN_CUDA=1
 
 CXX_INCLUDES = -I/home/chang/Desktop/matrix_acc/src -isystem /usr/local/cuda-13.1/targets/x86_64-linux/include
 
-CXX_FLAGS = -std=gnu++17 -fPIC
+CXX_FLAGS = -std=gnu++17 -fPIE
 

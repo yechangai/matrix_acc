@@ -8,8 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/chang/Desktop/matrix_acc/src/allocator.cpp" "src/CMakeFiles/ncnn.dir/allocator.cpp.o" "gcc" "src/CMakeFiles/ncnn.dir/allocator.cpp.o.d"
-  "/home/chang/Desktop/matrix_acc/src/gpu.cpp" "src/CMakeFiles/ncnn.dir/gpu.cpp.o" "gcc" "src/CMakeFiles/ncnn.dir/gpu.cpp.o.d"
+  "/home/chang/Desktop/matrix_acc/test/test_cuda_allocator.cpp" "test/CMakeFiles/test_cuda_allocator.dir/test_cuda_allocator.cpp.o" "gcc" "test/CMakeFiles/test_cuda_allocator.dir/test_cuda_allocator.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

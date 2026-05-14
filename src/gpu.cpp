@@ -111,7 +111,14 @@ static int initialize_cuda_gpu_instances()
         checkCudaErrors(cudaGetDeviceProperties(&prop, i));
         std::cout << "Cuda device Number:" << i << std::endl;
         std::cout << " Device name: " << prop.name << std::endl;
-        std::cout << " Device Memory Clock Rate (KHz): " << prop.memoryClockRate << std::endl;
+        // #if CUDA_VERSION >= 12000
+        //     std::cout << " Device Memory Clock Rate (KHz): " << prop.memoryClockRate << std::endl;
+        // #else
+        //     // 旧版本 CUDA 使用替代方法
+        //     int memoryClockRate;
+        //     cudaDeviceGetAttribute(&memoryClockRate, cudaDevAttrMemoryClockRate, device);
+        //     std::cout << " Device Memory Clock Rate (KHz): " << memoryClockRate << std::endl;
+        // #endif
         std::cout << " Device Memory Bus Width (bits): " << prop.memoryBusWidth << std::endl;
         std::cout << " Device Peak Memory Bandwidth (GB/s): " << prop.memoryBusWidth << std::endl;
         std::cout << " Device Shared Memory Per Block (GB/s): " << prop.sharedMemPerBlock << std::endl;
