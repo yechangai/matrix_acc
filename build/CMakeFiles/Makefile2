@@ -98,6 +98,7 @@ src/clean: src/CMakeFiles/ncnn.dir/clean
 # Recursive "all" directory target.
 test/all: test/CMakeFiles/test_allocator.dir/all
 test/all: test/CMakeFiles/test_cuda_allocator.dir/all
+test/all: test/CMakeFiles/test_compare.dir/all
 .PHONY : test/all
 
 # Recursive "preinstall" directory target.
@@ -107,6 +108,7 @@ test/preinstall:
 # Recursive "clean" directory target.
 test/clean: test/CMakeFiles/test_allocator.dir/clean
 test/clean: test/CMakeFiles/test_cuda_allocator.dir/clean
+test/clean: test/CMakeFiles/test_compare.dir/clean
 .PHONY : test/clean
 
 #=============================================================================
@@ -168,7 +170,7 @@ test/CMakeFiles/test_allocator.dir/clean:
 test/CMakeFiles/test_cuda_allocator.dir/all: src/CMakeFiles/ncnn.dir/all
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cuda_allocator.dir/build.make test/CMakeFiles/test_cuda_allocator.dir/depend
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cuda_allocator.dir/build.make test/CMakeFiles/test_cuda_allocator.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/chang/Desktop/matrix_acc/build/CMakeFiles --progress-num=6,7 "Built target test_cuda_allocator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/chang/Desktop/matrix_acc/build/CMakeFiles --progress-num=8,9 "Built target test_cuda_allocator"
 .PHONY : test/CMakeFiles/test_cuda_allocator.dir/all
 
 # Build rule for subdir invocation for target.
@@ -186,6 +188,32 @@ test_cuda_allocator: test/CMakeFiles/test_cuda_allocator.dir/rule
 test/CMakeFiles/test_cuda_allocator.dir/clean:
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cuda_allocator.dir/build.make test/CMakeFiles/test_cuda_allocator.dir/clean
 .PHONY : test/CMakeFiles/test_cuda_allocator.dir/clean
+
+#=============================================================================
+# Target rules for target test/CMakeFiles/test_compare.dir
+
+# All Build rule for target.
+test/CMakeFiles/test_compare.dir/all: src/CMakeFiles/ncnn.dir/all
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_compare.dir/build.make test/CMakeFiles/test_compare.dir/depend
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_compare.dir/build.make test/CMakeFiles/test_compare.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/chang/Desktop/matrix_acc/build/CMakeFiles --progress-num=6,7 "Built target test_compare"
+.PHONY : test/CMakeFiles/test_compare.dir/all
+
+# Build rule for subdir invocation for target.
+test/CMakeFiles/test_compare.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chang/Desktop/matrix_acc/build/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_compare.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chang/Desktop/matrix_acc/build/CMakeFiles 0
+.PHONY : test/CMakeFiles/test_compare.dir/rule
+
+# Convenience name for target.
+test_compare: test/CMakeFiles/test_compare.dir/rule
+.PHONY : test_compare
+
+# clean rule for target.
+test/CMakeFiles/test_compare.dir/clean:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_compare.dir/build.make test/CMakeFiles/test_compare.dir/clean
+.PHONY : test/CMakeFiles/test_compare.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

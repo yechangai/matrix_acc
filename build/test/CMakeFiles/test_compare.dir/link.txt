@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/test_compare.dir/test_compare.cpp.o -o test_compare  ../src/libncnn.a /usr/lib/x86_64-linux-gnu/libcudart.so /usr/lib/x86_64-linux-gnu/libcublas.so /usr/lib/x86_64-linux-gnu/libcudart.so /usr/lib/x86_64-linux-gnu/libcublasLt.so /usr/lib/x86_64-linux-gnu/libculibos.a 

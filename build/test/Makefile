@@ -154,6 +154,20 @@ test_cuda_allocator/fast:
 	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cuda_allocator.dir/build.make test/CMakeFiles/test_cuda_allocator.dir/build
 .PHONY : test_cuda_allocator/fast
 
+# Convenience name for target.
+test/CMakeFiles/test_compare.dir/rule:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_compare.dir/rule
+.PHONY : test/CMakeFiles/test_compare.dir/rule
+
+# Convenience name for target.
+test_compare: test/CMakeFiles/test_compare.dir/rule
+.PHONY : test_compare
+
+# fast build rule for target.
+test_compare/fast:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_compare.dir/build.make test/CMakeFiles/test_compare.dir/build
+.PHONY : test_compare/fast
+
 test_allocator.o: test_allocator.cpp.o
 .PHONY : test_allocator.o
 
@@ -177,6 +191,30 @@ test_allocator.s: test_allocator.cpp.s
 test_allocator.cpp.s:
 	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_allocator.dir/build.make test/CMakeFiles/test_allocator.dir/test_allocator.cpp.s
 .PHONY : test_allocator.cpp.s
+
+test_compare.o: test_compare.cpp.o
+.PHONY : test_compare.o
+
+# target to build an object file
+test_compare.cpp.o:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_compare.dir/build.make test/CMakeFiles/test_compare.dir/test_compare.cpp.o
+.PHONY : test_compare.cpp.o
+
+test_compare.i: test_compare.cpp.i
+.PHONY : test_compare.i
+
+# target to preprocess a source file
+test_compare.cpp.i:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_compare.dir/build.make test/CMakeFiles/test_compare.dir/test_compare.cpp.i
+.PHONY : test_compare.cpp.i
+
+test_compare.s: test_compare.cpp.s
+.PHONY : test_compare.s
+
+# target to generate assembly for a file
+test_compare.cpp.s:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_compare.dir/build.make test/CMakeFiles/test_compare.dir/test_compare.cpp.s
+.PHONY : test_compare.cpp.s
 
 test_cuda_allocator.o: test_cuda_allocator.cpp.o
 .PHONY : test_cuda_allocator.o
@@ -212,10 +250,14 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... test_allocator"
+	@echo "... test_compare"
 	@echo "... test_cuda_allocator"
 	@echo "... test_allocator.o"
 	@echo "... test_allocator.i"
 	@echo "... test_allocator.s"
+	@echo "... test_compare.o"
+	@echo "... test_compare.i"
+	@echo "... test_compare.s"
 	@echo "... test_cuda_allocator.o"
 	@echo "... test_cuda_allocator.i"
 	@echo "... test_cuda_allocator.s"

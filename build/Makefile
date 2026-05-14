@@ -165,6 +165,19 @@ test_cuda_allocator/fast:
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cuda_allocator.dir/build.make test/CMakeFiles/test_cuda_allocator.dir/build
 .PHONY : test_cuda_allocator/fast
 
+#=============================================================================
+# Target rules for targets named test_compare
+
+# Build rule for target.
+test_compare: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_compare
+.PHONY : test_compare
+
+# fast build rule for target.
+test_compare/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_compare.dir/build.make test/CMakeFiles/test_compare.dir/build
+.PHONY : test_compare/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -176,6 +189,7 @@ help:
 	@echo "... test"
 	@echo "... ncnn"
 	@echo "... test_allocator"
+	@echo "... test_compare"
 	@echo "... test_cuda_allocator"
 .PHONY : help
 

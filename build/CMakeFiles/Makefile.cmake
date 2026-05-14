@@ -55,4 +55,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "src/CMakeFiles/ncnn.dir/DependInfo.cmake"
   "test/CMakeFiles/test_allocator.dir/DependInfo.cmake"
   "test/CMakeFiles/test_cuda_allocator.dir/DependInfo.cmake"
+  "test/CMakeFiles/test_compare.dir/DependInfo.cmake"
   )

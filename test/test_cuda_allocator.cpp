@@ -3,7 +3,7 @@
 #include <cassert>
 #include <cstring>
 
-#ifdef NCNN_CUDA
+#if NCNN_CUDA
 #include <cuda_runtime.h>
 #include "allocator.h"
 
