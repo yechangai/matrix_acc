@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ncnn.dir/allocator.cpp.o"
   "CMakeFiles/ncnn.dir/allocator.cpp.o.d"
-  "CMakeFiles/ncnn.dir/gpu.cpp.o"
-  "CMakeFiles/ncnn.dir/gpu.cpp.o.d"
   "libncnn.a"
   "libncnn.pdb"
 )

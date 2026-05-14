@@ -64,14 +64,17 @@ CMAKE_BINARY_DIR = /home/chang/Desktop/matrix_acc/build
 
 # The main recursive "all" target.
 all: src/all
+all: test/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: src/preinstall
+preinstall: test/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: src/clean
+clean: test/clean
 .PHONY : clean
 
 #=============================================================================
@@ -79,7 +82,6 @@ clean: src/clean
 
 # Recursive "all" directory target.
 src/all: src/CMakeFiles/ncnn.dir/all
-src/all: src/CMakeFiles/test_allocator.dir/all
 .PHONY : src/all
 
 # Recursive "preinstall" directory target.
@@ -88,8 +90,22 @@ src/preinstall:
 
 # Recursive "clean" directory target.
 src/clean: src/CMakeFiles/ncnn.dir/clean
-src/clean: src/CMakeFiles/test_allocator.dir/clean
 .PHONY : src/clean
+
+#=============================================================================
+# Directory level rules for directory test
+
+# Recursive "all" directory target.
+test/all: test/CMakeFiles/test_allocator.dir/all
+.PHONY : test/all
+
+# Recursive "preinstall" directory target.
+test/preinstall:
+.PHONY : test/preinstall
+
+# Recursive "clean" directory target.
+test/clean: test/CMakeFiles/test_allocator.dir/clean
+.PHONY : test/clean
 
 #=============================================================================
 # Target rules for target src/CMakeFiles/ncnn.dir
@@ -98,12 +114,12 @@ src/clean: src/CMakeFiles/test_allocator.dir/clean
 src/CMakeFiles/ncnn.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncnn.dir/build.make src/CMakeFiles/ncnn.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncnn.dir/build.make src/CMakeFiles/ncnn.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/chang/Desktop/matrix_acc/build/CMakeFiles --progress-num=1,2,3 "Built target ncnn"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/chang/Desktop/matrix_acc/build/CMakeFiles --progress-num=1,2 "Built target ncnn"
 .PHONY : src/CMakeFiles/ncnn.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/ncnn.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chang/Desktop/matrix_acc/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chang/Desktop/matrix_acc/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/ncnn.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chang/Desktop/matrix_acc/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/ncnn.dir/rule
@@ -118,30 +134,30 @@ src/CMakeFiles/ncnn.dir/clean:
 .PHONY : src/CMakeFiles/ncnn.dir/clean
 
 #=============================================================================
-# Target rules for target src/CMakeFiles/test_allocator.dir
+# Target rules for target test/CMakeFiles/test_allocator.dir
 
 # All Build rule for target.
-src/CMakeFiles/test_allocator.dir/all:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/test_allocator.dir/build.make src/CMakeFiles/test_allocator.dir/depend
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/test_allocator.dir/build.make src/CMakeFiles/test_allocator.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/chang/Desktop/matrix_acc/build/CMakeFiles --progress-num=4,5,6 "Built target test_allocator"
-.PHONY : src/CMakeFiles/test_allocator.dir/all
+test/CMakeFiles/test_allocator.dir/all: src/CMakeFiles/ncnn.dir/all
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_allocator.dir/build.make test/CMakeFiles/test_allocator.dir/depend
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_allocator.dir/build.make test/CMakeFiles/test_allocator.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/chang/Desktop/matrix_acc/build/CMakeFiles --progress-num=3,4 "Built target test_allocator"
+.PHONY : test/CMakeFiles/test_allocator.dir/all
 
 # Build rule for subdir invocation for target.
-src/CMakeFiles/test_allocator.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chang/Desktop/matrix_acc/build/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/test_allocator.dir/all
+test/CMakeFiles/test_allocator.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chang/Desktop/matrix_acc/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_allocator.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chang/Desktop/matrix_acc/build/CMakeFiles 0
-.PHONY : src/CMakeFiles/test_allocator.dir/rule
+.PHONY : test/CMakeFiles/test_allocator.dir/rule
 
 # Convenience name for target.
-test_allocator: src/CMakeFiles/test_allocator.dir/rule
+test_allocator: test/CMakeFiles/test_allocator.dir/rule
 .PHONY : test_allocator
 
 # clean rule for target.
-src/CMakeFiles/test_allocator.dir/clean:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/test_allocator.dir/build.make src/CMakeFiles/test_allocator.dir/clean
-.PHONY : src/CMakeFiles/test_allocator.dir/clean
+test/CMakeFiles/test_allocator.dir/clean:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_allocator.dir/build.make test/CMakeFiles/test_allocator.dir/clean
+.PHONY : test/CMakeFiles/test_allocator.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

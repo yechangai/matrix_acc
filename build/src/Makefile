@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /home/chang/Desktop/matrix_acc/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
@@ -130,27 +140,12 @@ ncnn/fast:
 	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncnn.dir/build.make src/CMakeFiles/ncnn.dir/build
 .PHONY : ncnn/fast
 
-# Convenience name for target.
-src/CMakeFiles/test_allocator.dir/rule:
-	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/test_allocator.dir/rule
-.PHONY : src/CMakeFiles/test_allocator.dir/rule
-
-# Convenience name for target.
-test_allocator: src/CMakeFiles/test_allocator.dir/rule
-.PHONY : test_allocator
-
-# fast build rule for target.
-test_allocator/fast:
-	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/test_allocator.dir/build.make src/CMakeFiles/test_allocator.dir/build
-.PHONY : test_allocator/fast
-
 allocator.o: allocator.cpp.o
 .PHONY : allocator.o
 
 # target to build an object file
 allocator.cpp.o:
 	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncnn.dir/build.make src/CMakeFiles/ncnn.dir/allocator.cpp.o
-	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/test_allocator.dir/build.make src/CMakeFiles/test_allocator.dir/allocator.cpp.o
 .PHONY : allocator.cpp.o
 
 allocator.i: allocator.cpp.i
@@ -159,7 +154,6 @@ allocator.i: allocator.cpp.i
 # target to preprocess a source file
 allocator.cpp.i:
 	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncnn.dir/build.make src/CMakeFiles/ncnn.dir/allocator.cpp.i
-	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/test_allocator.dir/build.make src/CMakeFiles/test_allocator.dir/allocator.cpp.i
 .PHONY : allocator.cpp.i
 
 allocator.s: allocator.cpp.s
@@ -168,56 +162,7 @@ allocator.s: allocator.cpp.s
 # target to generate assembly for a file
 allocator.cpp.s:
 	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncnn.dir/build.make src/CMakeFiles/ncnn.dir/allocator.cpp.s
-	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/test_allocator.dir/build.make src/CMakeFiles/test_allocator.dir/allocator.cpp.s
 .PHONY : allocator.cpp.s
-
-gpu.o: gpu.cpp.o
-.PHONY : gpu.o
-
-# target to build an object file
-gpu.cpp.o:
-	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncnn.dir/build.make src/CMakeFiles/ncnn.dir/gpu.cpp.o
-.PHONY : gpu.cpp.o
-
-gpu.i: gpu.cpp.i
-.PHONY : gpu.i
-
-# target to preprocess a source file
-gpu.cpp.i:
-	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncnn.dir/build.make src/CMakeFiles/ncnn.dir/gpu.cpp.i
-.PHONY : gpu.cpp.i
-
-gpu.s: gpu.cpp.s
-.PHONY : gpu.s
-
-# target to generate assembly for a file
-gpu.cpp.s:
-	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncnn.dir/build.make src/CMakeFiles/ncnn.dir/gpu.cpp.s
-.PHONY : gpu.cpp.s
-
-test_allocator.o: test_allocator.cpp.o
-.PHONY : test_allocator.o
-
-# target to build an object file
-test_allocator.cpp.o:
-	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/test_allocator.dir/build.make src/CMakeFiles/test_allocator.dir/test_allocator.cpp.o
-.PHONY : test_allocator.cpp.o
-
-test_allocator.i: test_allocator.cpp.i
-.PHONY : test_allocator.i
-
-# target to preprocess a source file
-test_allocator.cpp.i:
-	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/test_allocator.dir/build.make src/CMakeFiles/test_allocator.dir/test_allocator.cpp.i
-.PHONY : test_allocator.cpp.i
-
-test_allocator.s: test_allocator.cpp.s
-.PHONY : test_allocator.s
-
-# target to generate assembly for a file
-test_allocator.cpp.s:
-	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/test_allocator.dir/build.make src/CMakeFiles/test_allocator.dir/test_allocator.cpp.s
-.PHONY : test_allocator.cpp.s
 
 # Help Target
 help:
@@ -227,17 +172,11 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... ncnn"
-	@echo "... test_allocator"
 	@echo "... allocator.o"
 	@echo "... allocator.i"
 	@echo "... allocator.s"
-	@echo "... gpu.o"
-	@echo "... gpu.i"
-	@echo "... gpu.s"
-	@echo "... test_allocator.o"
-	@echo "... test_allocator.i"
-	@echo "... test_allocator.s"
 .PHONY : help
 
 

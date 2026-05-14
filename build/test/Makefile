@@ -97,14 +97,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chang/Desktop/matrix_acc/build/CMakeFiles /home/chang/Desktop/matrix_acc/build//CMakeFiles/progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
+	cd /home/chang/Desktop/matrix_acc/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/chang/Desktop/matrix_acc/build/CMakeFiles /home/chang/Desktop/matrix_acc/build/test//CMakeFiles/progress.marks
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chang/Desktop/matrix_acc/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/clean
 .PHONY : clean
 
 # The main clean target
@@ -113,44 +113,56 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/chang/Desktop/matrix_acc/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named ncnn
+# Convenience name for target.
+test/CMakeFiles/test_allocator.dir/rule:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_allocator.dir/rule
+.PHONY : test/CMakeFiles/test_allocator.dir/rule
 
-# Build rule for target.
-ncnn: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ncnn
-.PHONY : ncnn
-
-# fast build rule for target.
-ncnn/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncnn.dir/build.make src/CMakeFiles/ncnn.dir/build
-.PHONY : ncnn/fast
-
-#=============================================================================
-# Target rules for targets named test_allocator
-
-# Build rule for target.
-test_allocator: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_allocator
+# Convenience name for target.
+test_allocator: test/CMakeFiles/test_allocator.dir/rule
 .PHONY : test_allocator
 
 # fast build rule for target.
 test_allocator/fast:
-	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_allocator.dir/build.make test/CMakeFiles/test_allocator.dir/build
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_allocator.dir/build.make test/CMakeFiles/test_allocator.dir/build
 .PHONY : test_allocator/fast
+
+test_allocator.o: test_allocator.cpp.o
+.PHONY : test_allocator.o
+
+# target to build an object file
+test_allocator.cpp.o:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_allocator.dir/build.make test/CMakeFiles/test_allocator.dir/test_allocator.cpp.o
+.PHONY : test_allocator.cpp.o
+
+test_allocator.i: test_allocator.cpp.i
+.PHONY : test_allocator.i
+
+# target to preprocess a source file
+test_allocator.cpp.i:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_allocator.dir/build.make test/CMakeFiles/test_allocator.dir/test_allocator.cpp.i
+.PHONY : test_allocator.cpp.i
+
+test_allocator.s: test_allocator.cpp.s
+.PHONY : test_allocator.s
+
+# target to generate assembly for a file
+test_allocator.cpp.s:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_allocator.dir/build.make test/CMakeFiles/test_allocator.dir/test_allocator.cpp.s
+.PHONY : test_allocator.cpp.s
 
 # Help Target
 help:
@@ -161,8 +173,10 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... ncnn"
 	@echo "... test_allocator"
+	@echo "... test_allocator.o"
+	@echo "... test_allocator.i"
+	@echo "... test_allocator.s"
 .PHONY : help
 
 
@@ -174,6 +188,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/chang/Desktop/matrix_acc/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
