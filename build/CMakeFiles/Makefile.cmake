@@ -12,8 +12,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.28.3/CMakeSystem.cmake"
   "/home/chang/Desktop/matrix_acc/src/CMakeLists.txt"
   "/home/chang/Desktop/matrix_acc/test/CMakeLists.txt"
+<<<<<<< HEAD
   "/usr/share/cmake-3.28/Modules/CMakeCXXCompiler.cmake.in"
   "/usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp"
+=======
+>>>>>>> a6769ae18341c128571217d4b26a37721c1ccc3f
   "/usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake"
   "/usr/share/cmake-3.28/Modules/CMakeCompilerIdDetection.cmake"

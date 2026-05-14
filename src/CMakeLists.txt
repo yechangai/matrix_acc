@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 option(BUILD_CUDA "Enable CUDA support for ncnn" OFF)
 
 set(ncnn_SRCS
@@ -10,6 +11,11 @@ if (BUILD_CUDA AND CUDAToolkit_FOUND)
 endif()
 
 add_library(ncnn STATIC ${ncnn_SRCS})
+=======
+add_library(ncnn STATIC
+    allocator.cpp
+)
+>>>>>>> a6769ae18341c128571217d4b26a37721c1ccc3f
 
 if (BUILD_CUDA AND CUDAToolkit_FOUND)
     target_compile_definitions(ncnn PRIVATE NCNN_CUDA=1)
