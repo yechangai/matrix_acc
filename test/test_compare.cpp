@@ -37,10 +37,10 @@ void cpu_matmul(const float* A, const float* B, float* C, int N)
 
 int main()
 {
-    const int N = 1024; // adjust as needed
-    const size_t sz = (size_t)N * N * sizeof(float);
+    const int M = 51*14*2, N = 51*14*2; // adjust as needed
+    const size_t sz = (size_t)M * N * sizeof(float);
 
-    std::cout << "Matrix size: " << N << "x" << N << std::endl;
+    std::cout << "Matrix size: " << M << "x" << N << std::endl;
 
     // allocate aligned host buffers using fastMalloc
     float* A = (float*)fastMalloc(sz + 64);

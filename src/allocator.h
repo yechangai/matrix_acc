@@ -1,8 +1,6 @@
 #ifndef ALLOCATOR_H
 #define ALLOCATOR_H
 
-
-
 #if NCNN_THREADS
 #if (defined _WIN32 && !(defined __MINGW32__))
 #define WIN32_LEAN_AND_MEAN
@@ -18,19 +16,12 @@
 #include <vector>
 #include <string>
 
-#if (defined _WIN32 && !(defined __MINGW32__))
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-#include <process.h>
-#else
-#include <pthread.h>
-#endif
-
 #if NCNN_CUDA
 #include <memory>     //引入 C++ 标准库的智能指针（std::shared_ptr/ std::unique_ptr）
 #endif // NCNN_CUDA   
 
 namespace ncnn {
+
 
 #if NCNN_THREADS
 #if (defined _WIN32 && !(defined __MINGW32__))
