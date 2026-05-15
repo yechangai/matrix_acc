@@ -1,11 +1,11 @@
+#ifndef CUDA_UTIL_H
+#define CUDA_UTIL_H
 
 #if NCNN_CUDA
 
-#ifndef NCNN_CUDA_UTIL_H
-#define NCNN_CUDA_UTIL_H
-
-
 #include <iostream>
+#include <iomanip>
+#include <cstdio>
 #include <cuda.h>
 #include <cuda_runtime.h>
 
@@ -19,6 +19,8 @@ void check(T err, const char* const func, const char* const file, const int line
         exit(1);
     }
 }
+
+
 
 #if defined(__cplusplus) && defined(__CUDACC__)
 
@@ -35,6 +37,6 @@ static __device__ void cuda_unlock(int* _mutex)
 
 #endif
 
-#endif //NCNN_CUDA_UTIL_H
+#endif //CUDA_UTIL_H
 
 #endif

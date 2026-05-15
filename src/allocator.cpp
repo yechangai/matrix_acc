@@ -64,7 +64,7 @@ void PoolAllocator::set_size_compare_ratio(float scr)
     size_compare_ratio = (unsigned int)(scr * 256);
 }
 
-void* PoolAllocator::fastMalloc(size_t size)
+void* PoolAllocator::fastMalloc(size_t size, size_t align)
 {
     budgets_lock.lock();
 
@@ -96,7 +96,7 @@ void* PoolAllocator::fastMalloc(size_t size)
     budgets_lock.unlock();
 
     // new
-    void* ptr = ncnn::fastMalloc(size);
+    void* ptr = ncnn::fastMalloc(size, align);
 
     payouts_lock.lock();
 
@@ -107,7 +107,7 @@ void* PoolAllocator::fastMalloc(size_t size)
     return ptr;
 }
 
-void PoolAllocator::fastFree(void* ptr)
+void PoolAllocator::fastFree(void* ptr, size_t align)
 {
     payouts_lock.lock();
 
@@ -136,7 +136,7 @@ void PoolAllocator::fastFree(void* ptr)
     payouts_lock.unlock();
 
     printf("FATAL ERROR! pool allocator get wild %p", ptr);
-    ncnn::fastFree(ptr);
+    ncnn::fastFree(ptr, align);
 }
 
 UnlockedPoolAllocator::UnlockedPoolAllocator()
@@ -182,7 +182,7 @@ void UnlockedPoolAllocator::set_size_compare_ratio(float scr)
     size_compare_ratio = (unsigned int)(scr * 256);
 }
 
-void* UnlockedPoolAllocator::fastMalloc(size_t size)
+void* UnlockedPoolAllocator::fastMalloc(size_t size, size_t align)
 {
     // find free budget
     std::list<std::pair<size_t, void*> >::iterator it = budgets.begin();
@@ -204,14 +204,14 @@ void* UnlockedPoolAllocator::fastMalloc(size_t size)
     }
 
     // new
-    void* ptr = ncnn::fastMalloc(size);
+    void* ptr = ncnn::fastMalloc(size, align);
 
     payouts.push_back(std::make_pair(size, ptr));
 
     return ptr;
 }
 
-void UnlockedPoolAllocator::fastFree(void* ptr)
+void UnlockedPoolAllocator::fastFree(void* ptr, size_t align)
 {
     // return to budgets
     std::list<std::pair<size_t, void*> >::iterator it = payouts.begin();
@@ -230,7 +230,7 @@ void UnlockedPoolAllocator::fastFree(void* ptr)
     }
 
     printf("FATAL ERROR! unlocked pool allocator get wild %p", ptr);
-    ncnn::fastFree(ptr);
+    ncnn::fastFree(ptr, align);
 }
 
 #if NCNN_CUDA

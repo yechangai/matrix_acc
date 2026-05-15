@@ -13,7 +13,6 @@ struct CudaGpuInfo {
     cudaDeviceProp cuda_properties{};
 };
 
-
 class CudaDevice
 {
 public:
@@ -26,14 +25,12 @@ public:
 
 };
 
-
 void try_initialize_cuda_gpu_instances();
 int get_cuda_gpu_count();
 int get_current_cuda_gpu_index();
 const CudaGpuInfo get_cuda_gpu_info(int device_index);
 CudaDevice* get_cuda_gpu_device(int cuda_device_index);
 CudaDevice* get_current_gpu_device();
-
 
 }
 #endif // NCNN_CUDA

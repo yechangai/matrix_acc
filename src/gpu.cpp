@@ -9,16 +9,16 @@
 namespace ncnn {
 
 
-	CudaDevice::CudaDevice(int _device_index)
-	{
-		device_index = _device_index;
-        info = get_cuda_gpu_info(device_index);
-	}
+CudaDevice::CudaDevice(int _device_index)
+{
+    device_index = _device_index;
+    info = get_cuda_gpu_info(device_index);
+}
 
-	CudaDevice::~CudaDevice()
-	{
+CudaDevice::~CudaDevice()
+{
 
-	}
+}
 
 static int g_cuda_gpu_count = 0;
 static int g_current_cuda_gpu_index = -1;

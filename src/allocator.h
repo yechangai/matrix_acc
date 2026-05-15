@@ -22,7 +22,6 @@
 
 namespace ncnn {
 
-
 #if NCNN_THREADS
 #if (defined _WIN32 && !(defined __MINGW32__))
 class Mutex
@@ -198,39 +197,72 @@ static inline size_t alignSize(size_t sz, int n)
     return (sz + n - 1) & -n;
 }
 
-static inline void* fastMalloc(size_t size)
-{
+static inline void* fastMalloc(size_t size, size_t align) {
 #if _MSC_VER
-    return _aligned_malloc(size, MALLOC_ALIGN);
+    return _aligned_malloc(size, align);
 #elif (defined(__unix__) || defined(__APPLE__)) && _POSIX_C_SOURCE >= 200112L || (__ANDROID__ && __ANDROID_API__ >= 17)
     void* ptr = 0;
-    if (posix_memalign(&ptr, MALLOC_ALIGN, size))
+    if (posix_memalign(&ptr, align, size))
         ptr = 0;
     return ptr;
 #else
-    unsigned char* udata = (unsigned char*)malloc(size + sizeof(void*) + MALLOC_ALIGN);
+    // 注意：这里 align 必须是 2 的幂
+    unsigned char* udata = (unsigned char*)malloc(size + sizeof(void*) + align);
     if (!udata)
         return 0;
-    unsigned char** adata = alignPtr((unsigned char**)udata + 1, MALLOC_ALIGN);
+    unsigned char** adata = alignPtr(reinterpret_cast<unsigned char**>(udata) + 1, align);
     adata[-1] = udata;
     return adata;
 #endif
 }
 
-static inline void fastFree(void* ptr)
-{
-    if (ptr)
-    {
+// static inline void* fastMalloc(size_t size)
+// {
+// #if _MSC_VER
+//     return _aligned_malloc(size, MALLOC_ALIGN);
+// #elif (defined(__unix__) || defined(__APPLE__)) && _POSIX_C_SOURCE >= 200112L || (__ANDROID__ && __ANDROID_API__ >= 17)
+//     void* ptr = 0;
+//     if (posix_memalign(&ptr, MALLOC_ALIGN, size))
+//         ptr = 0;
+//     return ptr;
+// #else
+//     unsigned char* udata = (unsigned char*)malloc(size + sizeof(void*) + MALLOC_ALIGN);
+//     if (!udata)
+//         return 0;
+//     unsigned char** adata = alignPtr((unsigned char**)udata + 1, MALLOC_ALIGN);
+//     adata[-1] = udata;
+//     return adata;
+// #endif
+// }
+
+static inline void fastFree(void* ptr, size_t align) {
 #if _MSC_VER
-        _aligned_free(ptr);
+    _aligned_free(ptr);
 #elif (defined(__unix__) || defined(__APPLE__)) && _POSIX_C_SOURCE >= 200112L || (__ANDROID__ && __ANDROID_API__ >= 17)
-        free(ptr);
+    free(ptr);
 #else
-        unsigned char* udata = ((unsigned char**)ptr)[-1];
+    if (ptr) {
+        // 手动对齐版本：取出原始指针并释放
+        unsigned char* udata = reinterpret_cast<unsigned char**>(ptr)[-1];
         free(udata);
-#endif
     }
+#endif
 }
+
+// static inline void fastFree(void* ptr)
+// {
+//     if (ptr)
+//     {
+// #if _MSC_VER
+//         _aligned_free(ptr);
+// #elif (defined(__unix__) || defined(__APPLE__)) && _POSIX_C_SOURCE >= 200112L || (__ANDROID__ && __ANDROID_API__ >= 17)
+//         free(ptr);
+// #else
+//         unsigned char* udata = ((unsigned char**)ptr)[-1];
+//         free(udata);
+// #endif
+//     }
+// }
 
 
 #if NCNN_THREADS
@@ -272,8 +304,8 @@ class Allocator
 {
 public:
     virtual ~Allocator();
-    virtual void* fastMalloc(size_t size) = 0;
-    virtual void fastFree(void* ptr) = 0;
+    virtual void* fastMalloc(size_t size, size_t align) = 0;
+    virtual void fastFree(void* ptr, size_t align) = 0;
 };
 
 class PoolAllocator : public Allocator
@@ -289,8 +321,8 @@ public:
     // release all budgets immediately
     void clear();
 
-    virtual void* fastMalloc(size_t size);
-    virtual void fastFree(void* ptr);
+    virtual void* fastMalloc(size_t size, size_t align);
+    virtual void fastFree(void* ptr, size_t align);
 
 private:
     Mutex budgets_lock;
@@ -313,8 +345,8 @@ public:
     // release all budgets immediately
     void clear();
 
-    virtual void* fastMalloc(size_t size);
-    virtual void fastFree(void* ptr);
+    virtual void* fastMalloc(size_t size, size_t align);
+    virtual void fastFree(void* ptr, size_t align);
 
 private:
     unsigned int size_compare_ratio; // 0~256
