@@ -30,6 +30,8 @@ void test_alignPtr()
     // Test 3: Align already aligned pointer
     unsigned char* already_aligned = alignPtr(buffer, 16);
     assert((size_t)already_aligned % 16 == 0);
+    std::cout << "  Aligned ptr (16): " << (size_t)already_aligned << std::endl;
+    assert(aligned_ptr_256 >= ptr);
     
     std::cout << "  alignPtr tests passed!" << std::endl;
 }
@@ -65,7 +67,7 @@ void test_fastMalloc_fastFree()
     
     // Test 1: Basic allocation and deallocation
     size_t size = 1024;
-    void* ptr = fastMalloc(size);
+    void* ptr = fastMalloc(size, 16);
     assert(ptr != nullptr);
     std::cout << "  Allocated " << size << " bytes at " << ptr << std::endl;
     
@@ -82,8 +84,8 @@ void test_fastMalloc_fastFree()
     std::cout << "  Memory freed successfully!" << std::endl;
     
     // Test 4: Multiple allocations
-    void* ptr1 = fastMalloc(512);
-    void* ptr2 = fastMalloc(1024);
+    void* ptr1 = fastMalloc(512, 16);
+    void* ptr2 = fastMalloc(1024,64);
     void* ptr3 = fastMalloc(2048);
     assert(ptr1 != nullptr && ptr2 != nullptr && ptr3 != nullptr);
     std::cout << "  Multiple allocations successful!" << std::endl;
@@ -132,7 +134,10 @@ void test_poolAllocator()
     alloc.set_size_compare_ratio(0.75f);
     
     // Allocate memory from pool
-    void* ptr1 = alloc.fastMalloc(512);
+    void* ptr1 = alloc.fastMalloc(512, 64);
+    size_t addr = (size_t)ptr1;
+    assert(addr % 64 == 0);
+    std::cout << "  Aligned ptr (64): " << addr << std::endl;
     void* ptr2 = alloc.fastMalloc(1024);
     assert(ptr1 != nullptr && ptr2 != nullptr);
     std::cout << "  Pool allocations successful!" << std::endl;

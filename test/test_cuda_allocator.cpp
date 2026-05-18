@@ -25,6 +25,74 @@ static bool verify_device_pattern(const std::vector<uint8_t>& data)
     return true;
 }
 
+template<typename AllocatorType>
+static bool test_cuda_pool_allocator(const char* name, const CudaDevice* device)
+{
+    std::cout << "testing " << name << std::endl;
+
+    AllocatorType alloc(device);
+    alloc.set_size_compare_ratio(1.0f);
+
+    const size_t bytes = 4096;
+    void* first_ptr = alloc.fastMalloc(bytes);
+    if (!first_ptr)
+    {
+        std::cerr << name << " first allocation failed" << std::endl;
+        return false;
+    }
+
+    std::vector<uint8_t> host(bytes);
+    std::vector<uint8_t> roundtrip(bytes, 0);
+    for (size_t i = 0; i < host.size(); ++i)
+    {
+        host[i] = static_cast<uint8_t>(i * 131u + 17u);
+    }
+
+    cudaError_t err = cudaMemcpy(first_ptr, host.data(), bytes, cudaMemcpyHostToDevice);
+    if (err != cudaSuccess)
+    {
+        std::cerr << name << " cudaMemcpy H2D failed: " << cudaGetErrorString(err) << std::endl;
+        alloc.fastFree(first_ptr);
+        return false;
+    }
+
+    err = cudaMemcpy(roundtrip.data(), first_ptr, bytes, cudaMemcpyDeviceToHost);
+    if (err != cudaSuccess)
+    {
+        std::cerr << name << " cudaMemcpy D2H failed: " << cudaGetErrorString(err) << std::endl;
+        alloc.fastFree(first_ptr);
+        return false;
+    }
+
+    if (!verify_device_pattern(roundtrip))
+    {
+        alloc.fastFree(first_ptr);
+        return false;
+    }
+
+    alloc.fastFree(first_ptr);
+
+    void* second_ptr = alloc.fastMalloc(bytes);
+    if (!second_ptr)
+    {
+        std::cerr << name << " second allocation failed" << std::endl;
+        return false;
+    }
+
+    if (second_ptr != first_ptr)
+    {
+        std::cerr << name << " did not reuse the freed allocation" << std::endl;
+        alloc.fastFree(second_ptr);
+        return false;
+    }
+
+    alloc.fastFree(second_ptr);
+    alloc.clear();
+
+    std::cout << name << " passed" << std::endl;
+    return true;
+}
+
 int main()
 {
     std::cout << "=== CUDA Allocator Test ===" << std::endl;
@@ -105,6 +173,13 @@ int main()
 
     alloc->fastFree(device_ptr);
     std::cout << "allocator roundtrip passed" << std::endl;
+
+    if (!test_cuda_pool_allocator<CudaPoolAllocator>("CudaPoolAllocator", device))
+        return 9;
+
+    if (!test_cuda_pool_allocator<CudaUnlockedPoolAllocator>("CudaUnlockedPoolAllocator", device))
+        return 10;
+
     return 0;
 }
 #else

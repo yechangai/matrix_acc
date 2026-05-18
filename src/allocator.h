@@ -176,7 +176,7 @@ private:
 #define MALLOC_ALIGN 256
 #else
 // 所有分配缓冲区的对齐大小
-#define MALLOC_ALIGN 16
+#define MALLOC_ALIGN 64
 #endif
 
 // 将指针对齐到指定字节数

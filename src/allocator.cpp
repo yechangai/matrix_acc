@@ -1,15 +1,11 @@
 #include "allocator.h"
-
 #include "gpu.h"
 #include <chrono>
-
 #include <algorithm>
-
 
 #if NCNN_CUDA
 #include "cuda_util.h"
 #endif
-
 
 namespace ncnn {
 
