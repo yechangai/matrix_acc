@@ -95,6 +95,7 @@ test/test_matmul: test/CMakeFiles/test_matmul.dir/build.make
 test/test_matmul: src/libncnn.a
 test/test_matmul: /usr/lib/x86_64-linux-gnu/libcudart.so
 test/test_matmul: /usr/lib/x86_64-linux-gnu/libcublas.so
+test/test_matmul: /usr/lib/x86_64-linux-gnu/libopenblas.so
 test/test_matmul: /usr/lib/x86_64-linux-gnu/libcudart.so
 test/test_matmul: /usr/lib/x86_64-linux-gnu/libcublasLt.so
 test/test_matmul: /usr/lib/x86_64-linux-gnu/libculibos.a

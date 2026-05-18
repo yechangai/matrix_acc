@@ -19,6 +19,14 @@ add_test(NAME allocator_test COMMAND test_allocator)
 
 # CUDA allocator test (only when BUILD_CUDA is enabled and CUDAToolkit is found)
 find_package(CUDAToolkit QUIET)
+# try find OpenBLAS
+find_library(OPENBLAS_LIB NAMES openblas openblas64_ libopenblas blas cblas)
+if (OPENBLAS_LIB)
+    message(STATUS "Found OpenBLAS: ${OPENBLAS_LIB}")
+    set(HAVE_OPENBLAS TRUE)
+else()
+    message(STATUS "OpenBLAS not found; OpenBLAS tests will be skipped")
+endif()
 if (BUILD_CUDA AND CUDAToolkit_FOUND)
     add_executable(test_cuda_allocator
         test_cuda_allocator.cpp
@@ -57,9 +65,13 @@ if (BUILD_CUDA AND CUDAToolkit_FOUND)
             ncnn
             CUDA::cudart
             CUDA::cublas
+            $<$<BOOL:${OPENBLAS_LIB}>:${OPENBLAS_LIB}>
     )
 
     target_compile_definitions(test_matmul PRIVATE NCNN_CUDA=1)
+    if (OPENBLAS_LIB)
+        target_compile_definitions(test_matmul PRIVATE HAVE_OPENBLAS=1)
+    endif()
 
     add_test(NAME matmul_test COMMAND test_matmul)
 else()

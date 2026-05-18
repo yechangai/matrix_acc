@@ -237,4 +237,6 @@ test/CMakeFiles/test_matmul.dir/test_matmul.cpp.o: \
  /usr/local/cuda-13.1/targets/x86_64-linux/include/cuda_bf16.h \
  /usr/local/cuda-13.1/targets/x86_64-linux/include/cuda_fp16.h \
  /usr/local/cuda-13.1/targets/x86_64-linux/include/cuda_bf16.hpp \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/library_types.h
+ /usr/local/cuda-13.1/targets/x86_64-linux/include/library_types.h \
+ /usr/include/x86_64-linux-gnu/cblas.h \
+ /usr/include/x86_64-linux-gnu/openblas_config.h

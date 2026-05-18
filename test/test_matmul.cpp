@@ -9,6 +9,9 @@
 #include <cuda_runtime.h>
 #include <cublas_v2.h>
 #endif
+#ifdef HAVE_OPENBLAS
+#include <cblas.h>
+#endif
 
 using namespace ncnn;
 
@@ -29,11 +32,11 @@ static void cpu_matmul(const float* A, const float* B, float* C, int N)
 
 int main()
 {
-    const int N = 256; // matrix dimension
-    const size_t elem_count = (size_t)N * N;
+    const int M = 1024, N = 1024; // matrix dimension
+    const size_t elem_count = (size_t)M * N;
     const size_t bytes = elem_count * sizeof(float);
 
-    std::cout << "Matrix " << N << "x" << N << " (" << bytes << " bytes)" << std::endl;
+    std::cout << "Matrix " << M << "x" << N << " (" << bytes << " bytes)" << std::endl;
 
     // host buffers via allocator and aligned
     float* A = (float*)fastMalloc(bytes + 64);
@@ -47,9 +50,9 @@ int main()
         return 1;
     }
 
-    A = alignPtr(A, 64);
-    B = alignPtr(B, 64);
-    C_cpu = alignPtr(C_cpu, 64);
+    A = alignPtr(A, 16);
+    B = alignPtr(B, 16);
+    C_cpu = alignPtr(C_cpu, 16);
     C_gpu = alignPtr(C_gpu, 64);
 
     // init
@@ -103,32 +106,33 @@ int main()
         cudaEvent_t start, stop;
         cudaEventCreate(&start);
         cudaEventCreate(&stop);
-        cudaEventRecord(start);
+        // cudaEventRecord(start);
 
-        cublasStatus_t stat = cublasSgemm(handle,
-            CUBLAS_OP_N, CUBLAS_OP_N,
-            N, N, N,
-            &alpha,
-            (const float*)dB, N,
-            (const float*)dA, N,
-            &beta,
-            (float*)dC, N);
+        // cublasStatus_t stat = cublasSgemm(handle,
+        //     CUBLAS_OP_N, CUBLAS_OP_N,
+        //     N, N, N,
+        //     &alpha,
+        //     (const float*)dB, N,
+        //     (const float*)dA, N,
+        //     &beta,
+        //     (float*)dC, N);
 
-        cudaEventRecord(stop);
-        cudaEventSynchronize(stop);
-        float gpu_ms = 0.f;
-        cudaEventElapsedTime(&gpu_ms, start, stop);
+        // cudaEventRecord(stop);
+        // cudaEventSynchronize(stop);
+        // float gpu_ms = 0.f;
+        // cudaEventElapsedTime(&gpu_ms, start, stop);
 
-        cudaMemcpy(C_gpu, dC, bytes, cudaMemcpyDeviceToHost);
+        // cudaMemcpy(C_gpu, dC, bytes, cudaMemcpyDeviceToHost);
 
-        if (stat != CUBLAS_STATUS_SUCCESS)
-        {
-            std::cerr << "cublasSgemm failed: " << stat << std::endl;
-        }
+        // if (stat != CUBLAS_STATUS_SUCCESS)
+        // {
+        //     std::cerr << "cublasSgemm failed: " << stat << std::endl;
+        // }
 
-        std::cout << "GPU cuBLAS time (kernel only): " << gpu_ms << " ms" << std::endl;
+        // std::cout << "GPU cuBLAS time (kernel only): " << gpu_ms << " ms" << std::endl;
 
         // measure full H2D + GEMM + D2H
+        cudaEventRecord(start);
         auto t0g = std::chrono::high_resolution_clock::now();
         void* dA2 = alloc->fastMalloc(bytes);
         void* dB2 = alloc->fastMalloc(bytes);
@@ -137,9 +141,15 @@ int main()
         cudaMemcpy(dB2, B, bytes, cudaMemcpyHostToDevice);
         cublasSgemm(handle, CUBLAS_OP_N, CUBLAS_OP_N, N, N, N, &alpha, (const float*)dB2, N, (const float*)dA2, N, &beta, (float*)dC2, N);
         cudaMemcpy(C_gpu, dC2, bytes, cudaMemcpyDeviceToHost);
+        cudaDeviceSynchronize(); 
         auto t1g = std::chrono::high_resolution_clock::now();
         double total_gpu_ms = std::chrono::duration<double, std::milli>(t1g - t0g).count();
-
+        cudaEventRecord(stop);
+        cudaEventSynchronize(stop);
+        float gpu_ms_new = 0.f;
+        cudaEventElapsedTime(&gpu_ms_new, start, stop);
+        
+        std::cout << "GPU cuBLAS time (H2D+GEMM+D2H): " << gpu_ms_new << " ms" << std::endl;
         std::cout << "GPU total (H2D+GEMM+D2H): " << total_gpu_ms << " ms" << std::endl;
 
         double max_err = 0.0;
@@ -160,6 +170,44 @@ int main()
     std::cout << "GPU test skipped (NCNN_CUDA not defined)" << std::endl;
 #endif
 
+#ifdef HAVE_OPENBLAS
+    // OpenBLAS (CPU-optimized BLAS) benchmark and verification
+    {
+        float* C_ob = (float*)fastMalloc(bytes + 64);
+        C_ob = alignPtr(C_ob, 64);
+        memset(C_ob, 0, bytes);
+
+        const float alpha = 1.0f;
+        const float beta = 0.0f;
+
+        auto tob0 = std::chrono::high_resolution_clock::now();
+        cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
+                    N, N, N,
+                    alpha,
+                    A, N,
+                    B, N,
+                    beta,
+                    C_ob, N);
+        auto tob1 = std::chrono::high_resolution_clock::now();
+        double ob_ms = std::chrono::duration<double, std::milli>(tob1 - tob0).count();
+
+        std::cout << "OpenBLAS sgemm time: " << ob_ms << " ms" << std::endl;
+
+        double max_err_ob = 0.0;
+        for (size_t i = 0; i < elem_count; ++i)
+        {
+            double errd = std::abs((double)C_cpu[i] - (double)C_ob[i]);
+            if (errd > max_err_ob) max_err_ob = errd;
+        }
+        std::cout << "Max absolute error vs CPU (OpenBLAS): " << max_err_ob << std::endl;
+
+        fastFree(C_ob);
+    }
+#else
+    std::cout << "OpenBLAS test skipped (not found)" << std::endl;
+#endif
+
+    // free host buffers after OpenBLAS comparison
     fastFree(A);
     fastFree(B);
     fastFree(C_cpu);
