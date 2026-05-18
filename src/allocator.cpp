@@ -46,7 +46,7 @@ void PoolAllocator::clear()
     for (; it != budgets.end(); ++it)
     {
         void* ptr = it->second;
-        ncnn::fastFree(ptr);
+        ncnn::fastFree(ptr, MALLOC_ALIGN);
     }
     budgets.clear();
 
@@ -166,7 +166,7 @@ void UnlockedPoolAllocator::clear()
     for (; it != budgets.end(); ++it)
     {
         void* ptr = it->second;
-        ncnn::fastFree(ptr);
+        ncnn::fastFree(ptr, MALLOC_ALIGN);
     }
     budgets.clear();
 }
@@ -250,6 +250,16 @@ void* CudaAllocator::fastMalloc(size_t size)
 void CudaAllocator::fastFree(void* ptr)
 {
     checkCudaErrors(cudaFree(ptr));
+}
+
+void* CudaAllocator::fastMalloc(size_t size, size_t /*align*/)
+{
+    return fastMalloc(size);
+}
+
+void CudaAllocator::fastFree(void* ptr, size_t /*align*/)
+{
+    fastFree(ptr);
 }
 
 std::shared_ptr<ncnn::CudaAllocator> get_current_gpu_allocator()

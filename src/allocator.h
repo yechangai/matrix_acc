@@ -197,7 +197,7 @@ static inline size_t alignSize(size_t sz, int n)
     return (sz + n - 1) & -n;
 }
 
-static inline void* fastMalloc(size_t size, size_t align) {
+static inline void* fastMalloc(size_t size, size_t align = MALLOC_ALIGN) {
 #if _MSC_VER
     return _aligned_malloc(size, align);
 #elif (defined(__unix__) || defined(__APPLE__)) && _POSIX_C_SOURCE >= 200112L || (__ANDROID__ && __ANDROID_API__ >= 17)
@@ -235,7 +235,7 @@ static inline void* fastMalloc(size_t size, size_t align) {
 // #endif
 // }
 
-static inline void fastFree(void* ptr, size_t align) {
+static inline void fastFree(void* ptr, size_t align = MALLOC_ALIGN) {
 #if _MSC_VER
     _aligned_free(ptr);
 #elif (defined(__unix__) || defined(__APPLE__)) && _POSIX_C_SOURCE >= 200112L || (__ANDROID__ && __ANDROID_API__ >= 17)
@@ -304,8 +304,8 @@ class Allocator
 {
 public:
     virtual ~Allocator();
-    virtual void* fastMalloc(size_t size, size_t align) = 0;
-    virtual void fastFree(void* ptr, size_t align) = 0;
+    virtual void* fastMalloc(size_t size, size_t align = MALLOC_ALIGN) = 0;
+    virtual void fastFree(void* ptr, size_t align = MALLOC_ALIGN) = 0;
 };
 
 class PoolAllocator : public Allocator
@@ -321,8 +321,8 @@ public:
     // release all budgets immediately
     void clear();
 
-    virtual void* fastMalloc(size_t size, size_t align);
-    virtual void fastFree(void* ptr, size_t align);
+    virtual void* fastMalloc(size_t size, size_t align = MALLOC_ALIGN);
+    virtual void fastFree(void* ptr, size_t align = MALLOC_ALIGN);
 
 private:
     Mutex budgets_lock;
@@ -345,8 +345,8 @@ public:
     // release all budgets immediately
     void clear();
 
-    virtual void* fastMalloc(size_t size, size_t align);
-    virtual void fastFree(void* ptr, size_t align);
+    virtual void* fastMalloc(size_t size, size_t align = MALLOC_ALIGN);
+    virtual void fastFree(void* ptr, size_t align = MALLOC_ALIGN);
 
 private:
     unsigned int size_compare_ratio; // 0~256
@@ -370,6 +370,8 @@ public:
 
     virtual void* fastMalloc(size_t size);
     virtual void fastFree(void* ptr);
+    virtual void* fastMalloc(size_t size, size_t align);
+    virtual void fastFree(void* ptr, size_t align);
 
 public:
     const CudaDevice* cudev;

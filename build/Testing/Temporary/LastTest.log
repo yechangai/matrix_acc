@@ -1,0 +1,100 @@
+Start testing: May 18 09:31 CST
+----------------------------------------------------------
+1/3 Testing: allocator_test
+1/3 Test: allocator_test
+Command: "/home/chang/Desktop/matrix_acc/build/test/test_allocator"
+Directory: /home/chang/Desktop/matrix_acc/build/test
+"allocator_test" start time: May 18 09:31 CST
+Output:
+----------------------------------------------------------
+=== Starting Allocator Tests ===
+
+Testing alignPtr...
+  Original ptr: 140729995373989
+  Aligned ptr (16): 140729995374000
+  Aligned ptr (256): 140729995374080
+  alignPtr tests passed!
+
+Testing alignSize...
+  Original size: 100, aligned (16): 112
+  Original size: 1000, aligned (256): 1024
+  alignSize tests passed!
+
+Testing fastMalloc and fastFree...
+  Allocated 1024 bytes at 0x559bf5129370
+  Memory write/read test passed!
+  Memory freed successfully!
+  Multiple allocations successful!
+  Multiple deallocations successful!
+
+Testing fastMalloc with alignPtr...
+  Raw pointer: 94128319928720
+  Aligned pointer (256): 94128319928832
+  Data written to aligned memory successfully!
+  Memory freed successfully!
+
+Testing PoolAllocator...
+  Pool allocations successful!
+  Pool deallocations successful!
+  Pool cleared!
+
+=== All Tests Passed! ===
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"allocator_test" end time: May 18 09:31 CST
+"allocator_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/3 Testing: cuda_allocator_test
+2/3 Test: cuda_allocator_test
+Command: "/home/chang/Desktop/matrix_acc/build/test/test_cuda_allocator"
+Directory: /home/chang/Desktop/matrix_acc/build/test
+"cuda_allocator_test" start time: May 18 09:31 CST
+Output:
+----------------------------------------------------------
+=== CUDA Allocator Test ===
+Cuda device Number:0
+ Device name: NVIDIA GeForce RTX 2070 with Max-Q Design
+ Device Memory Bus Width (bits): 0
+ Device Peak Memory Bandwidth (GB/s): 0
+ Device Shared Memory Per Block (GB/s): 49152
+cuda device count: 1
+current cuda device index: 0
+device name: NVIDIA GeForce RTX 2070 with Max-Q Design
+shared mem per block: 49152
+selected device index: 0
+allocator roundtrip passed
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Passed.
+"cuda_allocator_test" end time: May 18 09:31 CST
+"cuda_allocator_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/3 Testing: compare_test
+3/3 Test: compare_test
+Command: "/home/chang/Desktop/matrix_acc/build/test/test_compare"
+Directory: /home/chang/Desktop/matrix_acc/build/test
+"compare_test" start time: May 18 09:31 CST
+Output:
+----------------------------------------------------------
+=== CPU/GPU Buffer Compare Test ===
+Cuda device Number:0
+ Device name: NVIDIA GeForce RTX 2070 with Max-Q Design
+ Device Memory Bus Width (bits): 0
+ Device Peak Memory Bandwidth (GB/s): 0
+ Device Shared Memory Per Block (GB/s): 49152
+max abs diff: 0
+compare test passed
+<end of output>
+Test time =   0.34 sec
+----------------------------------------------------------
+Test Passed.
+"compare_test" end time: May 18 09:31 CST
+"compare_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: May 18 09:31 CST

@@ -1,81 +1,116 @@
+#include <algorithm>
+#include <cstdint>
 #include <iostream>
 #include <vector>
-#include <cassert>
-#include <cstring>
 
 #if NCNN_CUDA
 #include <cuda_runtime.h>
 #include "allocator.h"
+#include "gpu.h"
 
 using namespace ncnn;
 
+static bool verify_device_pattern(const std::vector<uint8_t>& data)
+{
+    for (size_t i = 0; i < data.size(); ++i)
+    {
+        uint8_t expected = static_cast<uint8_t>(i * 131u + 17u);
+        if (data[i] != expected)
+        {
+            std::cerr << "mismatch at " << i << ": got " << static_cast<int>(data[i])
+                      << ", expected " << static_cast<int>(expected) << std::endl;
+            return false;
+        }
+    }
+    return true;
+}
+
 int main()
 {
-    std::cout << "=== Starting CUDA Allocator Test ===" << std::endl;
+    std::cout << "=== CUDA Allocator Test ===" << std::endl;
 
-    // obtain current gpu allocator
-    auto alloc = get_current_gpu_allocator();
-    if (!alloc)
+    try_initialize_cuda_gpu_instances();
+
+    int gpu_count = get_cuda_gpu_count();
+    std::cout << "cuda device count: " << gpu_count << std::endl;
+    if (gpu_count <= 0)
     {
-        std::cerr << "get_current_gpu_allocator() returned null. Make sure CUDA is initialized." << std::endl;
+        std::cerr << "no CUDA device found" << std::endl;
+        return 0;
+    }
+
+    int current_index = get_current_cuda_gpu_index();
+    std::cout << "current cuda device index: " << current_index << std::endl;
+    if (current_index < 0)
+    {
+        std::cerr << "failed to resolve current CUDA device" << std::endl;
         return 2;
     }
 
-    const size_t sz = 4096;
-    void* devptr = alloc->fastMalloc(sz);
-    if (!devptr)
+    const CudaGpuInfo info = get_cuda_gpu_info(current_index);
+    std::cout << "device name: " << info.cuda_properties.name << std::endl;
+    std::cout << "shared mem per block: " << info.cuda_properties.sharedMemPerBlock << std::endl;
+
+    CudaDevice* device = get_current_gpu_device();
+    if (!device)
     {
-        std::cerr << "fastMalloc returned null" << std::endl;
+        std::cerr << "get_current_gpu_device() returned null" << std::endl;
         return 3;
     }
+    std::cout << "selected device index: " << device->device_index << std::endl;
 
-    // prepare host buffer
-    std::vector<unsigned char> host(sz);
-    for (size_t i = 0; i < sz; ++i) host[i] = (unsigned char)(i & 0xFF);
-
-    // copy host -> device
-    cudaError_t err = cudaMemcpy(devptr, host.data(), sz, cudaMemcpyHostToDevice);
-    if (err != cudaSuccess)
+    auto alloc = get_current_gpu_allocator();
+    if (!alloc)
     {
-        std::cerr << "cudaMemcpy H2D failed: " << cudaGetErrorString(err) << std::endl;
-        alloc->fastFree(devptr);
+        std::cerr << "get_current_gpu_allocator() returned null" << std::endl;
         return 4;
     }
 
-    // clear host and copy back
-    std::fill(host.begin(), host.end(), 0);
-    err = cudaMemcpy(host.data(), devptr, sz, cudaMemcpyDeviceToHost);
-    if (err != cudaSuccess)
+    const size_t bytes = 1 << 20;
+    void* device_ptr = alloc->fastMalloc(bytes);
+    if (!device_ptr)
     {
-        std::cerr << "cudaMemcpy D2H failed: " << cudaGetErrorString(err) << std::endl;
-        alloc->fastFree(devptr);
+        std::cerr << "device allocation failed" << std::endl;
         return 5;
     }
 
-    // verify
-    for (size_t i = 0; i < sz; ++i)
+    std::vector<uint8_t> host(bytes);
+    std::vector<uint8_t> roundtrip(bytes, 0);
+    for (size_t i = 0; i < host.size(); ++i)
     {
-        unsigned char expected = (unsigned char)(i & 0xFF);
-        if (host[i] != expected)
-        {
-            std::cerr << "Data mismatch at " << i << ": got " << (int)host[i] << " expected " << (int)expected << std::endl;
-            alloc->fastFree(devptr);
-            return 6;
-        }
+        host[i] = static_cast<uint8_t>(i * 131u + 17u);
     }
 
-    std::cout << "CUDA allocator H2D/D2H data verification passed." << std::endl;
+    cudaError_t err = cudaMemcpy(device_ptr, host.data(), bytes, cudaMemcpyHostToDevice);
+    if (err != cudaSuccess)
+    {
+        std::cerr << "cudaMemcpy H2D failed: " << cudaGetErrorString(err) << std::endl;
+        alloc->fastFree(device_ptr);
+        return 6;
+    }
 
-    alloc->fastFree(devptr);
-    std::cout << "Memory freed." << std::endl;
+    err = cudaMemcpy(roundtrip.data(), device_ptr, bytes, cudaMemcpyDeviceToHost);
+    if (err != cudaSuccess)
+    {
+        std::cerr << "cudaMemcpy D2H failed: " << cudaGetErrorString(err) << std::endl;
+        alloc->fastFree(device_ptr);
+        return 7;
+    }
 
-    std::cout << "=== CUDA Allocator Test Passed ===" << std::endl;
+    if (!verify_device_pattern(roundtrip))
+    {
+        alloc->fastFree(device_ptr);
+        return 8;
+    }
+
+    alloc->fastFree(device_ptr);
+    std::cout << "allocator roundtrip passed" << std::endl;
     return 0;
 }
 #else
 int main()
 {
-    std::cerr << "NCNN_CUDA not defined; build with -DBUILD_CUDA=ON and CUDA available to run this test." << std::endl;
+    std::cerr << "NCNN_CUDA is not enabled for this build." << std::endl;
     return 1;
 }
 #endif

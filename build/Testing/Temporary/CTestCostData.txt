@@ -1,0 +1,4 @@
+allocator_test 2 0.00190646
+cuda_allocator_test 2 0.22326
+compare_test 2 0.170766
+---

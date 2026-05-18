@@ -153,10 +153,14 @@ void try_initialize_cuda_gpu_instances()
 int get_cuda_gpu_count()
 {
     int cuda_device_count = 0;
-    checkCudaErrors(cudaGetDeviceCount(&cuda_device_count));
+    cudaError_t err = cudaGetDeviceCount(&cuda_device_count);
+    if (err == cudaErrorNoDevice)
+    {
+        return 0;
+    }
+    checkCudaErrors(err);
     return cuda_device_count;
 }
 
 }
 #endif
-
