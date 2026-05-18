@@ -41,6 +41,45 @@ if (BUILD_CUDA AND CUDAToolkit_FOUND)
     add_test(NAME cuda_allocator_test COMMAND test_cuda_allocator)
 endif()
 
+# Separate matmul benchmark test
+if (BUILD_CUDA AND CUDAToolkit_FOUND)
+    add_executable(test_matmul
+        test_matmul.cpp
+    )
+
+    target_include_directories(test_matmul
+        PRIVATE
+            ${PROJECT_SOURCE_DIR}/src
+    )
+
+    target_link_libraries(test_matmul
+        PRIVATE
+            ncnn
+            CUDA::cudart
+            CUDA::cublas
+    )
+
+    target_compile_definitions(test_matmul PRIVATE NCNN_CUDA=1)
+
+    add_test(NAME matmul_test COMMAND test_matmul)
+else()
+    add_executable(test_matmul_cpu
+        test_matmul.cpp
+    )
+
+    target_include_directories(test_matmul_cpu
+        PRIVATE
+            ${PROJECT_SOURCE_DIR}/src
+    )
+
+    target_link_libraries(test_matmul_cpu
+        PRIVATE
+            ncnn
+    )
+
+    add_test(NAME matmul_cpu_test COMMAND test_matmul_cpu)
+endif()
+
     # CPU / GPU compare test
     if (BUILD_CUDA AND CUDAToolkit_FOUND)
         add_executable(test_compare

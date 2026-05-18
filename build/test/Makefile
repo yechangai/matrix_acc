@@ -155,6 +155,20 @@ test_cuda_allocator/fast:
 .PHONY : test_cuda_allocator/fast
 
 # Convenience name for target.
+test/CMakeFiles/test_matmul.dir/rule:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_matmul.dir/rule
+.PHONY : test/CMakeFiles/test_matmul.dir/rule
+
+# Convenience name for target.
+test_matmul: test/CMakeFiles/test_matmul.dir/rule
+.PHONY : test_matmul
+
+# fast build rule for target.
+test_matmul/fast:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_matmul.dir/build.make test/CMakeFiles/test_matmul.dir/build
+.PHONY : test_matmul/fast
+
+# Convenience name for target.
 test/CMakeFiles/test_compare.dir/rule:
 	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_compare.dir/rule
 .PHONY : test/CMakeFiles/test_compare.dir/rule
@@ -240,6 +254,30 @@ test_cuda_allocator.cpp.s:
 	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cuda_allocator.dir/build.make test/CMakeFiles/test_cuda_allocator.dir/test_cuda_allocator.cpp.s
 .PHONY : test_cuda_allocator.cpp.s
 
+test_matmul.o: test_matmul.cpp.o
+.PHONY : test_matmul.o
+
+# target to build an object file
+test_matmul.cpp.o:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_matmul.dir/build.make test/CMakeFiles/test_matmul.dir/test_matmul.cpp.o
+.PHONY : test_matmul.cpp.o
+
+test_matmul.i: test_matmul.cpp.i
+.PHONY : test_matmul.i
+
+# target to preprocess a source file
+test_matmul.cpp.i:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_matmul.dir/build.make test/CMakeFiles/test_matmul.dir/test_matmul.cpp.i
+.PHONY : test_matmul.cpp.i
+
+test_matmul.s: test_matmul.cpp.s
+.PHONY : test_matmul.s
+
+# target to generate assembly for a file
+test_matmul.cpp.s:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_matmul.dir/build.make test/CMakeFiles/test_matmul.dir/test_matmul.cpp.s
+.PHONY : test_matmul.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -252,6 +290,7 @@ help:
 	@echo "... test_allocator"
 	@echo "... test_compare"
 	@echo "... test_cuda_allocator"
+	@echo "... test_matmul"
 	@echo "... test_allocator.o"
 	@echo "... test_allocator.i"
 	@echo "... test_allocator.s"
@@ -261,6 +300,9 @@ help:
 	@echo "... test_cuda_allocator.o"
 	@echo "... test_cuda_allocator.i"
 	@echo "... test_cuda_allocator.s"
+	@echo "... test_matmul.o"
+	@echo "... test_matmul.i"
+	@echo "... test_matmul.s"
 .PHONY : help
 
 
