@@ -1,2 +1,2 @@
-/usr/bin/ar qc libncnn.a CMakeFiles/ncnn.dir/allocator.cpp.o CMakeFiles/ncnn.dir/gpu.cpp.o
+/usr/bin/ar qc libncnn.a CMakeFiles/ncnn.dir/allocator.cpp.o CMakeFiles/ncnn.dir/gpu.cpp.o CMakeFiles/ncnn.dir/mat.cpp.o
 /usr/bin/ranlib libncnn.a

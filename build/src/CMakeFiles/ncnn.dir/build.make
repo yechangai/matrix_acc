@@ -97,19 +97,35 @@ src/CMakeFiles/ncnn.dir/gpu.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ncnn.dir/gpu.cpp.s"
 	cd /home/chang/Desktop/matrix_acc/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chang/Desktop/matrix_acc/src/gpu.cpp -o CMakeFiles/ncnn.dir/gpu.cpp.s
 
+src/CMakeFiles/ncnn.dir/mat.cpp.o: src/CMakeFiles/ncnn.dir/flags.make
+src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp
+src/CMakeFiles/ncnn.dir/mat.cpp.o: src/CMakeFiles/ncnn.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chang/Desktop/matrix_acc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/ncnn.dir/mat.cpp.o"
+	cd /home/chang/Desktop/matrix_acc/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/ncnn.dir/mat.cpp.o -MF CMakeFiles/ncnn.dir/mat.cpp.o.d -o CMakeFiles/ncnn.dir/mat.cpp.o -c /home/chang/Desktop/matrix_acc/src/mat.cpp
+
+src/CMakeFiles/ncnn.dir/mat.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ncnn.dir/mat.cpp.i"
+	cd /home/chang/Desktop/matrix_acc/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chang/Desktop/matrix_acc/src/mat.cpp > CMakeFiles/ncnn.dir/mat.cpp.i
+
+src/CMakeFiles/ncnn.dir/mat.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ncnn.dir/mat.cpp.s"
+	cd /home/chang/Desktop/matrix_acc/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chang/Desktop/matrix_acc/src/mat.cpp -o CMakeFiles/ncnn.dir/mat.cpp.s
+
 # Object files for target ncnn
 ncnn_OBJECTS = \
 "CMakeFiles/ncnn.dir/allocator.cpp.o" \
-"CMakeFiles/ncnn.dir/gpu.cpp.o"
+"CMakeFiles/ncnn.dir/gpu.cpp.o" \
+"CMakeFiles/ncnn.dir/mat.cpp.o"
 
 # External object files for target ncnn
 ncnn_EXTERNAL_OBJECTS =
 
 src/libncnn.a: src/CMakeFiles/ncnn.dir/allocator.cpp.o
 src/libncnn.a: src/CMakeFiles/ncnn.dir/gpu.cpp.o
+src/libncnn.a: src/CMakeFiles/ncnn.dir/mat.cpp.o
 src/libncnn.a: src/CMakeFiles/ncnn.dir/build.make
 src/libncnn.a: src/CMakeFiles/ncnn.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/chang/Desktop/matrix_acc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libncnn.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/chang/Desktop/matrix_acc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libncnn.a"
 	cd /home/chang/Desktop/matrix_acc/build/src && $(CMAKE_COMMAND) -P CMakeFiles/ncnn.dir/cmake_clean_target.cmake
 	cd /home/chang/Desktop/matrix_acc/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ncnn.dir/link.txt --verbose=$(VERBOSE)
 

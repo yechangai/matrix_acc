@@ -188,6 +188,30 @@ gpu.cpp.s:
 	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncnn.dir/build.make src/CMakeFiles/ncnn.dir/gpu.cpp.s
 .PHONY : gpu.cpp.s
 
+mat.o: mat.cpp.o
+.PHONY : mat.o
+
+# target to build an object file
+mat.cpp.o:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncnn.dir/build.make src/CMakeFiles/ncnn.dir/mat.cpp.o
+.PHONY : mat.cpp.o
+
+mat.i: mat.cpp.i
+.PHONY : mat.i
+
+# target to preprocess a source file
+mat.cpp.i:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncnn.dir/build.make src/CMakeFiles/ncnn.dir/mat.cpp.i
+.PHONY : mat.cpp.i
+
+mat.s: mat.cpp.s
+.PHONY : mat.s
+
+# target to generate assembly for a file
+mat.cpp.s:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncnn.dir/build.make src/CMakeFiles/ncnn.dir/mat.cpp.s
+.PHONY : mat.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -204,6 +228,9 @@ help:
 	@echo "... gpu.o"
 	@echo "... gpu.i"
 	@echo "... gpu.s"
+	@echo "... mat.o"
+	@echo "... mat.i"
+	@echo "... mat.s"
 .PHONY : help
 
 

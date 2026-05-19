@@ -1,10 +1,11 @@
 add_library(ncnn STATIC
     allocator.cpp
     gpu.cpp   
+    mat.cpp
 )
 find_package(CUDAToolkit REQUIRED)
 if (BUILD_CUDA)
-    target_compile_definitions(ncnn PRIVATE NCNN_CUDA=1)
+    target_compile_definitions(ncnn PRIVATE NCNN_CUDA=1 NCNN_THREADS=1)
     target_link_libraries(ncnn PRIVATE CUDA::cudart)
 endif()
 

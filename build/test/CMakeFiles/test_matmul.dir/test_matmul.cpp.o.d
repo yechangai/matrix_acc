@@ -179,14 +179,10 @@ test/CMakeFiles/test_matmul.dir/test_matmul.cpp.o: \
  /usr/include/c++/13/bits/atomic_lockfree_defines.h \
  /usr/include/c++/13/backward/auto_ptr.h \
  /usr/include/c++/13/pstl/glue_memory_defs.h \
- /usr/include/c++/13/pstl/execution_defs.h \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/cuda_runtime.h \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/crt/host_config.h \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/builtin_types.h \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/device_types.h \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/crt/host_defines.h \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/driver_types.h \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/vector_types.h \
+ /usr/include/c++/13/pstl/execution_defs.h /usr/include/cuda_runtime.h \
+ /usr/include/crt/host_config.h /usr/include/builtin_types.h \
+ /usr/include/device_types.h /usr/include/crt/host_defines.h \
+ /usr/include/driver_types.h /usr/include/vector_types.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
@@ -195,18 +191,13 @@ test/CMakeFiles/test_matmul.dir/test_matmul.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/surface_types.h \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/texture_types.h \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/library_types.h \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/channel_descriptor.h \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/cuda_runtime_api.h \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/cuda_device_runtime_api.h \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/driver_functions.h \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/vector_functions.h \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/vector_functions.hpp \
- /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h \
- /usr/include/cublas_v2.h /usr/include/cublas_api.h \
- /usr/include/driver_types.h /usr/include/cuComplex.h \
+ /usr/include/surface_types.h /usr/include/texture_types.h \
+ /usr/include/library_types.h /usr/include/channel_descriptor.h \
+ /usr/include/cuda_runtime_api.h /usr/include/cuda_device_runtime_api.h \
+ /usr/include/driver_functions.h /usr/include/vector_functions.h \
+ /usr/include/vector_functions.hpp /usr/include/c++/13/utility \
+ /usr/include/c++/13/bits/stl_relops.h /usr/include/cublas_v2.h \
+ /usr/include/cublas_api.h /usr/include/cuComplex.h \
  /usr/include/c++/13/math.h /usr/include/c++/13/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -228,15 +219,10 @@ test/CMakeFiles/test_matmul.dir/test_matmul.cpp.o: \
  /usr/include/c++/13/tr1/modified_bessel_func.tcc \
  /usr/include/c++/13/tr1/poly_hermite.tcc \
  /usr/include/c++/13/tr1/poly_laguerre.tcc \
- /usr/include/c++/13/tr1/riemann_zeta.tcc /usr/include/vector_types.h \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/cuda_fp16.h \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/nv/target \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/nv/detail/__target_macros \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/nv/detail/__preprocessor \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/cuda_fp16.hpp \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/cuda_bf16.h \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/cuda_fp16.h \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/cuda_bf16.hpp \
- /usr/local/cuda-13.1/targets/x86_64-linux/include/library_types.h \
+ /usr/include/c++/13/tr1/riemann_zeta.tcc /usr/include/cuda_fp16.h \
+ /usr/include/cuda_fp16.hpp /usr/include/nv/target \
+ /usr/include/nv/detail/__target_macros \
+ /usr/include/nv/detail/__preprocessor /usr/include/cuda_bf16.h \
+ /usr/include/cuda_bf16.hpp /usr/include/library_types.h \
  /usr/include/x86_64-linux-gnu/cblas.h \
  /usr/include/x86_64-linux-gnu/openblas_config.h

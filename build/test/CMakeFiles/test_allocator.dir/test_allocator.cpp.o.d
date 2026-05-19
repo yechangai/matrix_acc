@@ -1,8 +1,7 @@
-src/CMakeFiles/ncnn.dir/gpu.cpp.o: \
- /home/chang/Desktop/matrix_acc/src/gpu.cpp /usr/include/stdc-predef.h \
- /home/chang/Desktop/matrix_acc/src/gpu.h \
- /home/chang/Desktop/matrix_acc/src/cuda_util.h \
- /usr/include/c++/13/iostream /usr/include/c++/13/bits/requires_hosted.h \
+test/CMakeFiles/test_allocator.dir/test_allocator.cpp.o: \
+ /home/chang/Desktop/matrix_acc/test/test_allocator.cpp \
+ /usr/include/stdc-predef.h /usr/include/c++/13/iostream \
+ /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -150,41 +149,10 @@ src/CMakeFiles/ncnn.dir/gpu.cpp.o: \
  /usr/include/c++/13/bits/locale_facets.tcc \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/iomanip \
- /usr/include/c++/13/locale \
- /usr/include/c++/13/bits/locale_facets_nonio.h /usr/include/c++/13/ctime \
- /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
- /usr/include/libintl.h /usr/include/c++/13/bits/codecvt.h \
- /usr/include/c++/13/bits/locale_facets_nonio.tcc \
- /usr/include/c++/13/bits/locale_conv.h \
- /usr/include/c++/13/bits/quoted_string.h /usr/include/c++/13/sstream \
- /usr/include/c++/13/bits/sstream.tcc /usr/include/cuda.h \
- /usr/include/c++/13/stdlib.h \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
- /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
- /usr/include/cuda_runtime.h /usr/include/crt/host_config.h \
- /usr/include/builtin_types.h /usr/include/device_types.h \
- /usr/include/crt/host_defines.h /usr/include/driver_types.h \
- /usr/include/vector_types.h \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
- /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
- /usr/include/x86_64-linux-gnu/bits/local_lim.h \
- /usr/include/linux/limits.h \
- /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
- /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
- /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
- /usr/include/surface_types.h /usr/include/texture_types.h \
- /usr/include/library_types.h /usr/include/channel_descriptor.h \
- /usr/include/cuda_runtime_api.h /usr/include/cuda_device_runtime_api.h \
- /usr/include/driver_functions.h /usr/include/vector_functions.h \
- /usr/include/vector_functions.hpp /usr/include/c++/13/utility \
- /usr/include/c++/13/bits/stl_relops.h /usr/include/c++/13/atomic \
- /usr/include/c++/13/bits/atomic_base.h \
- /usr/include/c++/13/bits/atomic_lockfree_defines.h \
- /home/chang/Desktop/matrix_acc/src/allocator.h /usr/include/c++/13/list \
+ /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/cstring \
+ /usr/include/string.h /usr/include/strings.h /usr/include/c++/13/cassert \
+ /usr/include/assert.h /home/chang/Desktop/matrix_acc/src/allocator.h \
+ /usr/include/c++/13/stdlib.h /usr/include/c++/13/list \
  /usr/include/c++/13/bits/stl_list.h \
  /usr/include/c++/13/bits/allocated_ptr.h \
  /usr/include/c++/13/ext/aligned_buffer.h \
@@ -192,19 +160,4 @@ src/CMakeFiles/ncnn.dir/gpu.cpp.o: \
  /usr/include/c++/13/bits/stl_uninitialized.h \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
- /usr/include/c++/13/bits/vector.tcc /usr/include/c++/13/memory \
- /usr/include/c++/13/bits/stl_tempbuf.h \
- /usr/include/c++/13/bits/stl_raw_storage_iter.h \
- /usr/include/c++/13/bits/align.h /usr/include/c++/13/bits/unique_ptr.h \
- /usr/include/c++/13/bits/shared_ptr.h \
- /usr/include/c++/13/bits/shared_ptr_base.h \
- /usr/include/c++/13/ext/concurrence.h \
- /usr/include/c++/13/bits/shared_ptr_atomic.h \
- /usr/include/c++/13/backward/auto_ptr.h \
- /usr/include/c++/13/pstl/glue_memory_defs.h \
- /usr/include/c++/13/pstl/execution_defs.h /usr/include/c++/13/mutex \
- /usr/include/c++/13/bits/chrono.h /usr/include/c++/13/ratio \
- /usr/include/c++/13/cstdint /usr/include/c++/13/limits \
- /usr/include/c++/13/bits/parse_numbers.h \
- /usr/include/c++/13/bits/std_mutex.h \
- /usr/include/c++/13/bits/unique_lock.h
+ /usr/include/c++/13/bits/vector.tcc

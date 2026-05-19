@@ -207,13 +207,13 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-CUDAToolkit_BIN_DIR:PATH=/usr/local/cuda-13.1/bin
+CUDAToolkit_BIN_DIR:PATH=/usr/bin
 
 //Path to a file.
-CUDAToolkit_CUPTI_INCLUDE_DIR:PATH=/usr/local/cuda-13.1/targets/x86_64-linux/include
+CUDAToolkit_CUPTI_INCLUDE_DIR:PATH=/usr/include
 
 //Path to a program.
-CUDAToolkit_NVCC_EXECUTABLE:FILEPATH=/usr/local/cuda-13.1/bin/nvcc
+CUDAToolkit_NVCC_EXECUTABLE:FILEPATH=/usr/bin/nvcc
 
 //Path to a library.
 CUDAToolkit_rt_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/librt.a
@@ -730,13 +730,11 @@ CUDA_nvrtc_static_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CUDA_pcsamplingutil_LIBRARY
 CUDA_pcsamplingutil_LIBRARY-ADVANCED:INTERNAL=1
 //Details about finding CUDAToolkit
-FIND_PACKAGE_MESSAGE_DETAILS_CUDAToolkit:INTERNAL=[/usr/local/cuda-13.1/targets/x86_64-linux/include;/usr/include][/usr/lib/x86_64-linux-gnu/libcudart.so][/usr/local/cuda-13.1/bin][v13.1.115()]
+FIND_PACKAGE_MESSAGE_DETAILS_CUDAToolkit:INTERNAL=[/usr/include][/usr/lib/x86_64-linux-gnu/libcudart.so][/usr/bin][v12.0.140()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 //CUDAToolkit internal list of implicit link directories
-_cmake_CUDAToolkit_implicit_link_directories:INTERNAL=/usr/local/cuda-13.1/targets/x86_64-linux/lib/stubs;/usr/local/cuda-13.1/targets/x86_64-linux/lib
-//CUDAToolkit internal list of include directories
-_cmake_CUDAToolkit_include_directories:INTERNAL=/usr/local/cuda-13.1/targets/x86_64-linux/include
+_cmake_CUDAToolkit_implicit_link_directories:INTERNAL=/usr/lib/x86_64-linux-gnu/stubs;/usr/lib/x86_64-linux-gnu
 
