@@ -141,6 +141,20 @@ test_allocator/fast:
 .PHONY : test_allocator/fast
 
 # Convenience name for target.
+test/CMakeFiles/test_mat.dir/rule:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_mat.dir/rule
+.PHONY : test/CMakeFiles/test_mat.dir/rule
+
+# Convenience name for target.
+test_mat: test/CMakeFiles/test_mat.dir/rule
+.PHONY : test_mat
+
+# fast build rule for target.
+test_mat/fast:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_mat.dir/build.make test/CMakeFiles/test_mat.dir/build
+.PHONY : test_mat/fast
+
+# Convenience name for target.
 test/CMakeFiles/test_cuda_allocator.dir/rule:
 	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_cuda_allocator.dir/rule
 .PHONY : test/CMakeFiles/test_cuda_allocator.dir/rule
@@ -153,6 +167,20 @@ test_cuda_allocator: test/CMakeFiles/test_cuda_allocator.dir/rule
 test_cuda_allocator/fast:
 	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cuda_allocator.dir/build.make test/CMakeFiles/test_cuda_allocator.dir/build
 .PHONY : test_cuda_allocator/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_cuda_mat.dir/rule:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_cuda_mat.dir/rule
+.PHONY : test/CMakeFiles/test_cuda_mat.dir/rule
+
+# Convenience name for target.
+test_cuda_mat: test/CMakeFiles/test_cuda_mat.dir/rule
+.PHONY : test_cuda_mat
+
+# fast build rule for target.
+test_cuda_mat/fast:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cuda_mat.dir/build.make test/CMakeFiles/test_cuda_mat.dir/build
+.PHONY : test_cuda_mat/fast
 
 # Convenience name for target.
 test/CMakeFiles/test_matmul.dir/rule:
@@ -254,6 +282,54 @@ test_cuda_allocator.cpp.s:
 	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cuda_allocator.dir/build.make test/CMakeFiles/test_cuda_allocator.dir/test_cuda_allocator.cpp.s
 .PHONY : test_cuda_allocator.cpp.s
 
+test_cuda_mat.o: test_cuda_mat.cpp.o
+.PHONY : test_cuda_mat.o
+
+# target to build an object file
+test_cuda_mat.cpp.o:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cuda_mat.dir/build.make test/CMakeFiles/test_cuda_mat.dir/test_cuda_mat.cpp.o
+.PHONY : test_cuda_mat.cpp.o
+
+test_cuda_mat.i: test_cuda_mat.cpp.i
+.PHONY : test_cuda_mat.i
+
+# target to preprocess a source file
+test_cuda_mat.cpp.i:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cuda_mat.dir/build.make test/CMakeFiles/test_cuda_mat.dir/test_cuda_mat.cpp.i
+.PHONY : test_cuda_mat.cpp.i
+
+test_cuda_mat.s: test_cuda_mat.cpp.s
+.PHONY : test_cuda_mat.s
+
+# target to generate assembly for a file
+test_cuda_mat.cpp.s:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cuda_mat.dir/build.make test/CMakeFiles/test_cuda_mat.dir/test_cuda_mat.cpp.s
+.PHONY : test_cuda_mat.cpp.s
+
+test_mat.o: test_mat.cpp.o
+.PHONY : test_mat.o
+
+# target to build an object file
+test_mat.cpp.o:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_mat.dir/build.make test/CMakeFiles/test_mat.dir/test_mat.cpp.o
+.PHONY : test_mat.cpp.o
+
+test_mat.i: test_mat.cpp.i
+.PHONY : test_mat.i
+
+# target to preprocess a source file
+test_mat.cpp.i:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_mat.dir/build.make test/CMakeFiles/test_mat.dir/test_mat.cpp.i
+.PHONY : test_mat.cpp.i
+
+test_mat.s: test_mat.cpp.s
+.PHONY : test_mat.s
+
+# target to generate assembly for a file
+test_mat.cpp.s:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_mat.dir/build.make test/CMakeFiles/test_mat.dir/test_mat.cpp.s
+.PHONY : test_mat.cpp.s
+
 test_matmul.o: test_matmul.cpp.o
 .PHONY : test_matmul.o
 
@@ -290,6 +366,8 @@ help:
 	@echo "... test_allocator"
 	@echo "... test_compare"
 	@echo "... test_cuda_allocator"
+	@echo "... test_cuda_mat"
+	@echo "... test_mat"
 	@echo "... test_matmul"
 	@echo "... test_allocator.o"
 	@echo "... test_allocator.i"
@@ -300,6 +378,12 @@ help:
 	@echo "... test_cuda_allocator.o"
 	@echo "... test_cuda_allocator.i"
 	@echo "... test_cuda_allocator.s"
+	@echo "... test_cuda_mat.o"
+	@echo "... test_cuda_mat.i"
+	@echo "... test_cuda_mat.s"
+	@echo "... test_mat.o"
+	@echo "... test_mat.i"
+	@echo "... test_mat.s"
 	@echo "... test_matmul.o"
 	@echo "... test_matmul.i"
 	@echo "... test_matmul.s"

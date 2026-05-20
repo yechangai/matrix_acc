@@ -153,6 +153,19 @@ test_allocator/fast:
 .PHONY : test_allocator/fast
 
 #=============================================================================
+# Target rules for targets named test_mat
+
+# Build rule for target.
+test_mat: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_mat
+.PHONY : test_mat
+
+# fast build rule for target.
+test_mat/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_mat.dir/build.make test/CMakeFiles/test_mat.dir/build
+.PHONY : test_mat/fast
+
+#=============================================================================
 # Target rules for targets named test_cuda_allocator
 
 # Build rule for target.
@@ -164,6 +177,19 @@ test_cuda_allocator: cmake_check_build_system
 test_cuda_allocator/fast:
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cuda_allocator.dir/build.make test/CMakeFiles/test_cuda_allocator.dir/build
 .PHONY : test_cuda_allocator/fast
+
+#=============================================================================
+# Target rules for targets named test_cuda_mat
+
+# Build rule for target.
+test_cuda_mat: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_cuda_mat
+.PHONY : test_cuda_mat
+
+# fast build rule for target.
+test_cuda_mat/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cuda_mat.dir/build.make test/CMakeFiles/test_cuda_mat.dir/build
+.PHONY : test_cuda_mat/fast
 
 #=============================================================================
 # Target rules for targets named test_matmul
@@ -204,6 +230,8 @@ help:
 	@echo "... test_allocator"
 	@echo "... test_compare"
 	@echo "... test_cuda_allocator"
+	@echo "... test_cuda_mat"
+	@echo "... test_mat"
 	@echo "... test_matmul"
 .PHONY : help
 

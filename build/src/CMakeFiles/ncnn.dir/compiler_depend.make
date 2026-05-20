@@ -825,12 +825,216 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/adxintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/amxbf16intrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/amxcomplexintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/amxfp16intrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/amxint8intrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/amxtileintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx2intrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx5124fmapsintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx5124vnniwintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512bf16intrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512bf16vlintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512bitalgintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512bwintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512cdintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512dqintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512erintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512fintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512fp16intrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512fp16vlintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512ifmaintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512ifmavlintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512pfintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vbmi2intrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vbmi2vlintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vbmiintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vbmivlintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vlbwintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vldqintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vlintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vnniintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vnnivlintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vp2intersectintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vp2intersectvlintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vpopcntdqintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vpopcntdqvlintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avxifmaintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avxintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avxneconvertintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avxvnniint8intrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avxvnniintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/bmi2intrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/bmiintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/cetintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/cldemoteintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/clflushoptintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/clwbintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/clzerointrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/cmpccxaddintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/emmintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/enqcmdintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/f16cintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/fmaintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/fxsrintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/gfniintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/hresetintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/ia32intrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/immintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/keylockerintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/lwpintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/lzcntintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/mm_malloc.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/mmintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/movdirintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/mwaitintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/mwaitxintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/pconfigintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/pkuintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/pmmintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/popcntintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/prfchiintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/prfchwintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/raointintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/rdseedintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/rtmintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/serializeintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/sgxintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/shaintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/smmintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/tbmintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/tmmintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/tsxldtrkintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/uintrintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/vaesintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/vpclmulqdqintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/waitpkgintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/wbnoinvdintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/wmmintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/x86gprintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/xmmintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/xsavecintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/xsaveintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/xsaveoptintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/xsavesintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/xtestintrin.h
 
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/xtestintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/xsavesintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/xsaveoptintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/xsaveintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/xsavecintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/xmmintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/x86gprintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/vaesintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/tmmintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/tbmintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/smmintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/rtmintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/rdseedintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/raointintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/popcntintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/pmmintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/pkuintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/mm_malloc.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/lzcntintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/lwpintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/keylockerintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/ia32intrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/gfniintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/fxsrintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/fmaintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/mwaitintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/f16cintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/cmpccxaddintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/clzerointrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/clflushoptintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/cldemoteintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/bmiintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/bmi2intrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/uintrintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avxvnniint8intrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avxintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avxifmaintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vpopcntdqvlintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vp2intersectintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vnnivlintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vnniintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vldqintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vbmi2vlintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512fp16vlintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512dqintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512bitalgintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512bf16intrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx5124vnniwintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx5124fmapsintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx2intrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/amxtileintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/amxfp16intrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/amxcomplexintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/amxbf16intrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/adxintrin.h:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
 
@@ -839,6 +1043,8 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 /usr/include/x86_64-linux-gnu/bits/math-vector.h:
 
 /usr/include/x86_64-linux-gnu/bits/fp-logb.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/pconfigintrin.h:
 
 /usr/include/x86_64-linux-gnu/bits/fp-fast.h:
 
@@ -850,21 +1056,33 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 
 /usr/include/c++/13/tr1/poly_laguerre.tcc:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vbmi2intrin.h:
+
 /usr/include/c++/13/tr1/poly_hermite.tcc:
 
 /usr/include/c++/13/tr1/legendre_function.tcc:
 
 /usr/include/c++/13/tr1/gamma.tcc:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/mwaitxintrin.h:
+
 /usr/include/c++/13/tr1/exp_integral.tcc:
 
 /usr/include/c++/13/tr1/ell_integral.tcc:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/hresetintrin.h:
+
 /usr/include/c++/13/tr1/beta_function.tcc:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/cetintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vlintrin.h:
 
 /usr/include/c++/13/cmath:
 
 /usr/include/assert.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/amxint8intrin.h:
 
 /home/chang/Desktop/matrix_acc/src/mat.cpp:
 
@@ -873,6 +1091,10 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 /usr/include/c++/13/math.h:
 
 /usr/include/c++/13/bits/unique_lock.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/prfchiintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vbmiintrin.h:
 
 /usr/include/c++/13/bits/std_mutex.h:
 
@@ -886,6 +1108,8 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512pfintrin.h:
+
 /usr/include/c++/13/tr1/modified_bessel_func.tcc:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h:
@@ -896,6 +1120,8 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vbmivlintrin.h:
+
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
@@ -903,6 +1129,8 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512cdintrin.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h:
 
@@ -918,9 +1146,15 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 
 /usr/include/c++/13/iostream:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/immintrin.h:
+
 /usr/include/c++/13/ext/type_traits.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512ifmaintrin.h:
+
 /usr/include/c++/13/ext/string_conversions.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512fp16intrin.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
 
@@ -956,9 +1190,13 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 
 /usr/include/c++/13/bits/atomic_base.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/wmmintrin.h:
+
 /usr/include/c++/13/bits/align.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512erintrin.h:
 
 /usr/include/c++/13/bits/specfun.h:
 
@@ -971,6 +1209,8 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/wbnoinvdintrin.h:
 
 /usr/include/c++/13/bits/new_allocator.h:
 
@@ -1030,6 +1270,8 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/clwbintrin.h:
+
 /usr/include/c++/13/bits/quoted_string.h:
 
 /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
@@ -1038,9 +1280,15 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 
 /usr/include/c++/13/ostream:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avxvnniintrin.h:
+
 /usr/include/c++/13/bits/cpp_type_traits.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512ifmavlintrin.h:
+
 /usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avxneconvertintrin.h:
 
 /usr/include/c++/13/bits/move.h:
 
@@ -1067,6 +1315,8 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 /usr/include/c++/13/bits/stl_iterator.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vlbwintrin.h:
 
 /usr/include/c++/13/bits/locale_facets.h:
 
@@ -1104,6 +1354,8 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 
 /usr/include/c++/13/bits/ios_base.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/sgxintrin.h:
+
 /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h:
 
 /usr/include/c++/13/bits/uniform_int_dist.h:
@@ -1118,9 +1370,13 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/mmintrin.h:
+
 /usr/include/c++/13/algorithm:
 
 /usr/include/c++/13/ext/aligned_buffer.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vpopcntdqintrin.h:
 
 /usr/include/locale.h:
 
@@ -1142,6 +1398,10 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 
 /usr/include/c++/13/bits/hash_bytes.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/serializeintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vp2intersectvlintrin.h:
+
 /usr/include/c++/13/bits/stl_iterator_base_funcs.h:
 
 /usr/include/asm-generic/errno-base.h:
@@ -1149,6 +1409,8 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 /usr/include/x86_64-linux-gnu/sys/select.h:
 
 /usr/include/c++/13/cwchar:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/prfchwintrin.h:
 
 /usr/include/c++/13/iosfwd:
 
@@ -1165,6 +1427,8 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 /usr/include/c++/13/backward/auto_ptr.h:
 
 /usr/include/c++/13/bits/basic_ios.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/shaintrin.h:
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 
@@ -1188,6 +1452,8 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512fintrin.h:
+
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
 /usr/include/c++/13/bits/basic_ios.tcc:
@@ -1197,6 +1463,8 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 /usr/include/c++/13/pstl/execution_defs.h:
 
 /usr/include/channel_descriptor.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/emmintrin.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h:
 
@@ -1215,6 +1483,8 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 /usr/include/c++/13/streambuf:
 
 /usr/include/c++/13/bits/memory_resource.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/enqcmdintrin.h:
 
 /usr/include/c++/13/bits/shared_ptr_base.h:
 
@@ -1239,6 +1509,10 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
 
 /usr/include/c++/13/pstl/pstl_config.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/waitpkgintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512bf16vlintrin.h:
 
 /usr/include/c++/13/stdexcept:
 
@@ -1276,6 +1550,8 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/tsxldtrkintrin.h:
+
 /usr/include/cuda_runtime.h:
 
 /usr/include/c++/13/cwctype:
@@ -1283,6 +1559,8 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 /usr/include/driver_functions.h:
 
 /usr/include/driver_types.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/vpclmulqdqintrin.h:
 
 /usr/include/features.h:
 
@@ -1321,6 +1599,8 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 /usr/include/sched.h:
 
 /usr/include/stdc-predef.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/movdirintrin.h:
 
 /usr/include/c++/13/bits/stl_iterator_base_types.h:
 
@@ -1419,6 +1699,8 @@ src/CMakeFiles/ncnn.dir/mat.cpp.o: /home/chang/Desktop/matrix_acc/src/mat.cpp \
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512bwintrin.h:
 
 /usr/include/c++/13/bits/exception_defines.h:
 

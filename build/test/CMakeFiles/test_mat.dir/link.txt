@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/test_mat.dir/test_mat.cpp.o -o test_mat  ../src/libncnn.a /usr/lib/x86_64-linux-gnu/libcudart.so 

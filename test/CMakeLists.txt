@@ -17,6 +17,24 @@ target_link_libraries(test_allocator
 
 add_test(NAME allocator_test COMMAND test_allocator)
 
+add_executable(test_mat
+    test_mat.cpp
+)
+
+target_include_directories(test_mat
+    PRIVATE
+        ${PROJECT_SOURCE_DIR}/src
+)
+
+target_link_libraries(test_mat
+    PRIVATE
+        ncnn
+)
+
+target_compile_definitions(test_mat PRIVATE NCNN_THREADS=1)
+
+add_test(NAME mat_test COMMAND test_mat)
+
 # CUDA allocator test (only when BUILD_CUDA is enabled and CUDAToolkit is found)
 find_package(CUDAToolkit QUIET)
 # try find OpenBLAS
@@ -47,6 +65,25 @@ if (BUILD_CUDA AND CUDAToolkit_FOUND)
     target_compile_definitions(test_cuda_allocator PRIVATE NCNN_CUDA=1)
 
     add_test(NAME cuda_allocator_test COMMAND test_cuda_allocator)
+
+    add_executable(test_cuda_mat
+        test_cuda_mat.cpp
+    )
+
+    target_include_directories(test_cuda_mat
+        PRIVATE
+            ${PROJECT_SOURCE_DIR}/src
+    )
+
+    target_link_libraries(test_cuda_mat
+        PRIVATE
+            ncnn
+            CUDA::cudart
+    )
+
+    target_compile_definitions(test_cuda_mat PRIVATE NCNN_CUDA=1 NCNN_THREADS=1)
+
+    add_test(NAME cuda_mat_test COMMAND test_cuda_mat)
 endif()
 
 # Separate matmul benchmark test
