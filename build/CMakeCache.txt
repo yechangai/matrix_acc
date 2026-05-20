@@ -15,7 +15,7 @@
 ########################
 
 //No help, variable specified on the command line.
-BUILD_CUDA:UNINITIALIZED=ON
+BUILD_CUDA:UNINITIALIZED=1
 
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
@@ -430,6 +430,12 @@ CUDA_nvrtc_static_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libnvrtc_static.a
 
 //Path to a library.
 CUDA_pcsamplingutil_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libpcsamplingutil.so
+
+//cuda compute support
+NCNN_CUDA:BOOL=ON
+
+//build with threads
+NCNN_THREADS:BOOL=ON
 
 //Path to a library.
 OPENBLAS_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libopenblas.so

@@ -6,5 +6,5 @@ CXX_DEFINES = -DNCNN_CUDA=1 -DNCNN_THREADS=1
 
 CXX_INCLUDES = -I/home/chang/Desktop/matrix_acc/src
 
-CXX_FLAGS = -std=gnu++17 -fPIC
+CXX_FLAGS = -std=gnu++17 -fPIC -march=native
 
