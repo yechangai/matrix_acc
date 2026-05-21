@@ -266,6 +266,8 @@ static inline void fastFree(void* ptr, size_t align = MALLOC_ALIGN) {
 
 
 #if NCNN_THREADS
+
+#pragma message("NCNN_THREADS is defined!")
 // exchange-add operation for atomic operations on reference counters
 
 #if defined(__INTEL_COMPILER) && !(defined(WIN32) || defined(_WIN32))

@@ -288,8 +288,10 @@ public:
     CudaMat range(int x, int n);
     const CudaMat range(int x, int n) const;
 
-    template<typename T>
-    std::shared_ptr<T> copy_gpu_data() const;
+    template<typename T>  
+    std::shared_ptr<T[]> copy_gpu_data() const;
+    // std::shared_ptr<T> copy_gpu_data() const;
+
 
     // access raw data
     template<typename T>
@@ -1095,12 +1097,38 @@ inline size_t CudaMat::total() const
     return cstep * c;
 }
 
-template<typename T>
-std::shared_ptr<T> CudaMat::copy_gpu_data() const
-{
-    std::shared_ptr<T> cpu_data = std::make_shared<T>(total());
+// template<typename T>
+// std::shared_ptr<T> CudaMat::copy_gpu_data() const
+// {
+//     std::shared_ptr<T> cpu_data = std::make_shared<T>(total());
 
-    checkCudaErrors(cudaMemcpy(static_cast<void*>(cpu_data.get()), data, total() * elemsize, cudaMemcpyDeviceToHost));
+//     checkCudaErrors(cudaMemcpy(static_cast<void*>(cpu_data.get()), data, total() * elemsize, cudaMemcpyDeviceToHost));
+//     return cpu_data;
+// }
+
+template<typename T>
+std::shared_ptr<T[]> CudaMat::copy_gpu_data() const
+{
+    // 1. 安全检查
+    if (!data || total() == 0) {
+        return nullptr;
+    }
+
+    // 2. 关键：确保 T 的大小等于 elemsize
+    // static_assert(sizeof(T) == elemsize, "Type T size does not match elemsize!");
+    
+    // 3. 分配数组（注意是 T[]，不是单个 T）
+    std::shared_ptr<T[]> cpu_data(new T[total()]);
+
+    // 4. 拷贝数据
+    // 此时拷贝的字节数应为 total() * sizeof(T)，也就是 total() * elemsize
+    checkCudaErrors(cudaMemcpy(
+        static_cast<void*>(cpu_data.get()), 
+        data, 
+        total() * sizeof(T), // 使用 sizeof(T) 更安全
+        cudaMemcpyDeviceToHost
+    ));
+
     return cpu_data;
 }
 

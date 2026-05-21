@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/test_gemm_perf.dir/test_gemm_perf.cpp.o -o test_gemm_perf  ../src/libncnn.a /usr/lib/x86_64-linux-gnu/libcudart.so /usr/lib/x86_64-linux-gnu/libcublas.so /usr/lib/x86_64-linux-gnu/libcudart.so /usr/lib/x86_64-linux-gnu/libcublasLt.so /usr/lib/x86_64-linux-gnu/libculibos.a 

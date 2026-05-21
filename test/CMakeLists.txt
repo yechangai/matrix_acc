@@ -109,7 +109,7 @@ if (BUILD_CUDA AND CUDAToolkit_FOUND)
     if (OPENBLAS_LIB)
         target_compile_definitions(test_matmul PRIVATE HAVE_OPENBLAS=1)
     endif()
-
+    target_compile_options(test_matmul PRIVATE -O3)
     add_test(NAME matmul_test COMMAND test_matmul)
 else()
     add_executable(test_matmul_cpu
@@ -127,6 +127,52 @@ else()
     )
 
     add_test(NAME matmul_cpu_test COMMAND test_matmul_cpu)
+endif()
+
+# GEMM benchmark using Mat/CudaMat API
+# GEMM benchmark using Mat/CudaMat API
+if (BUILD_CUDA AND CUDAToolkit_FOUND)
+    add_executable(test_gemm_perf
+        test_gemm_perf.cpp
+    )
+
+    target_include_directories(test_gemm_perf
+        PRIVATE
+            ${PROJECT_SOURCE_DIR}/src
+    )
+
+    target_link_libraries(test_gemm_perf
+        PRIVATE
+            ncnn
+            CUDA::cudart
+            CUDA::cublas
+    )
+
+    target_compile_definitions(test_gemm_perf PRIVATE NCNN_CUDA=1)
+    target_compile_definitions(test_gemm_perf PRIVATE NCNN_THREADS=1)
+    
+    # 设置 -O3 优化级别
+    target_compile_options(test_gemm_perf PRIVATE -O3)
+    
+    add_test(NAME gemm_perf_test COMMAND test_gemm_perf)
+else()
+    add_executable(test_gemm_perf_cpu
+        test_gemm_perf.cpp
+    )
+
+    target_include_directories(test_gemm_perf_cpu
+        PRIVATE
+            ${PROJECT_SOURCE_DIR}/src
+    )
+
+    target_link_libraries(test_gemm_perf_cpu
+        PRIVATE
+            ncnn
+    )
+    # 设置 -O3 优化级别
+    target_compile_options(test_gemm_perf_cpu PRIVATE -O3)
+    
+    add_test(NAME gemm_perf_cpu_test COMMAND test_gemm_perf_cpu)
 endif()
 
     # CPU / GPU compare test

@@ -1,5 +1,5 @@
-test/CMakeFiles/test_matmul.dir/test_matmul.cpp.o: \
- /home/chang/Desktop/matrix_acc/test/test_matmul.cpp \
+test/CMakeFiles/test_gemm_perf.dir/test_gemm_perf.cpp.o: \
+ /home/chang/Desktop/matrix_acc/test/test_gemm_perf.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/13/iostream \
  /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -173,8 +173,8 @@ test/CMakeFiles/test_matmul.dir/test_matmul.cpp.o: \
  /usr/include/strings.h \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
- /home/chang/Desktop/matrix_acc/src/allocator.h \
- /usr/include/c++/13/stdlib.h /usr/include/c++/13/list \
+ /home/chang/Desktop/matrix_acc/src/mat.h /usr/include/c++/13/stdlib.h \
+ /home/chang/Desktop/matrix_acc/src/allocator.h /usr/include/c++/13/list \
  /usr/include/c++/13/bits/stl_list.h \
  /usr/include/c++/13/bits/allocated_ptr.h \
  /usr/include/c++/13/ext/aligned_buffer.h \
@@ -190,10 +190,21 @@ test/CMakeFiles/test_matmul.dir/test_matmul.cpp.o: \
  /usr/include/c++/13/bits/atomic_lockfree_defines.h \
  /usr/include/c++/13/backward/auto_ptr.h \
  /usr/include/c++/13/pstl/glue_memory_defs.h \
- /usr/include/c++/13/pstl/execution_defs.h /usr/include/cuda_runtime.h \
- /usr/include/crt/host_config.h /usr/include/builtin_types.h \
- /usr/include/device_types.h /usr/include/crt/host_defines.h \
- /usr/include/driver_types.h /usr/include/vector_types.h \
+ /usr/include/c++/13/pstl/execution_defs.h \
+ /home/chang/Desktop/matrix_acc/src/cuda_util.h \
+ /usr/include/c++/13/iomanip /usr/include/c++/13/locale \
+ /usr/include/c++/13/bits/locale_facets_nonio.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/13/bits/codecvt.h \
+ /usr/include/c++/13/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/13/bits/locale_conv.h \
+ /usr/include/c++/13/bits/quoted_string.h /usr/include/c++/13/sstream \
+ /usr/include/c++/13/bits/sstream.tcc /usr/include/cuda.h \
+ /usr/include/cuda_runtime.h /usr/include/crt/host_config.h \
+ /usr/include/builtin_types.h /usr/include/device_types.h \
+ /usr/include/crt/host_defines.h /usr/include/driver_types.h \
+ /usr/include/vector_types.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
@@ -207,7 +218,8 @@ test/CMakeFiles/test_matmul.dir/test_matmul.cpp.o: \
  /usr/include/cuda_runtime_api.h /usr/include/cuda_device_runtime_api.h \
  /usr/include/driver_functions.h /usr/include/vector_functions.h \
  /usr/include/vector_functions.hpp /usr/include/c++/13/utility \
- /usr/include/c++/13/bits/stl_relops.h /usr/include/cublas_v2.h \
+ /usr/include/c++/13/bits/stl_relops.h \
+ /home/chang/Desktop/matrix_acc/src/allocator.h /usr/include/cublas_v2.h \
  /usr/include/cublas_api.h /usr/include/cuComplex.h \
  /usr/include/c++/13/math.h /usr/include/c++/13/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
@@ -234,6 +246,4 @@ test/CMakeFiles/test_matmul.dir/test_matmul.cpp.o: \
  /usr/include/cuda_fp16.hpp /usr/include/nv/target \
  /usr/include/nv/detail/__target_macros \
  /usr/include/nv/detail/__preprocessor /usr/include/cuda_bf16.h \
- /usr/include/cuda_bf16.hpp /usr/include/library_types.h \
- /usr/include/x86_64-linux-gnu/cblas.h \
- /usr/include/x86_64-linux-gnu/openblas_config.h
+ /usr/include/cuda_bf16.hpp /usr/include/library_types.h

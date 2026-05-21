@@ -197,6 +197,20 @@ test_matmul/fast:
 .PHONY : test_matmul/fast
 
 # Convenience name for target.
+test/CMakeFiles/test_gemm_perf.dir/rule:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_gemm_perf.dir/rule
+.PHONY : test/CMakeFiles/test_gemm_perf.dir/rule
+
+# Convenience name for target.
+test_gemm_perf: test/CMakeFiles/test_gemm_perf.dir/rule
+.PHONY : test_gemm_perf
+
+# fast build rule for target.
+test_gemm_perf/fast:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_gemm_perf.dir/build.make test/CMakeFiles/test_gemm_perf.dir/build
+.PHONY : test_gemm_perf/fast
+
+# Convenience name for target.
 test/CMakeFiles/test_compare.dir/rule:
 	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_compare.dir/rule
 .PHONY : test/CMakeFiles/test_compare.dir/rule
@@ -306,6 +320,30 @@ test_cuda_mat.cpp.s:
 	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_cuda_mat.dir/build.make test/CMakeFiles/test_cuda_mat.dir/test_cuda_mat.cpp.s
 .PHONY : test_cuda_mat.cpp.s
 
+test_gemm_perf.o: test_gemm_perf.cpp.o
+.PHONY : test_gemm_perf.o
+
+# target to build an object file
+test_gemm_perf.cpp.o:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_gemm_perf.dir/build.make test/CMakeFiles/test_gemm_perf.dir/test_gemm_perf.cpp.o
+.PHONY : test_gemm_perf.cpp.o
+
+test_gemm_perf.i: test_gemm_perf.cpp.i
+.PHONY : test_gemm_perf.i
+
+# target to preprocess a source file
+test_gemm_perf.cpp.i:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_gemm_perf.dir/build.make test/CMakeFiles/test_gemm_perf.dir/test_gemm_perf.cpp.i
+.PHONY : test_gemm_perf.cpp.i
+
+test_gemm_perf.s: test_gemm_perf.cpp.s
+.PHONY : test_gemm_perf.s
+
+# target to generate assembly for a file
+test_gemm_perf.cpp.s:
+	cd /home/chang/Desktop/matrix_acc/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_gemm_perf.dir/build.make test/CMakeFiles/test_gemm_perf.dir/test_gemm_perf.cpp.s
+.PHONY : test_gemm_perf.cpp.s
+
 test_mat.o: test_mat.cpp.o
 .PHONY : test_mat.o
 
@@ -367,6 +405,7 @@ help:
 	@echo "... test_compare"
 	@echo "... test_cuda_allocator"
 	@echo "... test_cuda_mat"
+	@echo "... test_gemm_perf"
 	@echo "... test_mat"
 	@echo "... test_matmul"
 	@echo "... test_allocator.o"
@@ -381,6 +420,9 @@ help:
 	@echo "... test_cuda_mat.o"
 	@echo "... test_cuda_mat.i"
 	@echo "... test_cuda_mat.s"
+	@echo "... test_gemm_perf.o"
+	@echo "... test_gemm_perf.i"
+	@echo "... test_gemm_perf.s"
 	@echo "... test_mat.o"
 	@echo "... test_mat.i"
 	@echo "... test_mat.s"

@@ -205,6 +205,19 @@ test_matmul/fast:
 .PHONY : test_matmul/fast
 
 #=============================================================================
+# Target rules for targets named test_gemm_perf
+
+# Build rule for target.
+test_gemm_perf: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_gemm_perf
+.PHONY : test_gemm_perf
+
+# fast build rule for target.
+test_gemm_perf/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_gemm_perf.dir/build.make test/CMakeFiles/test_gemm_perf.dir/build
+.PHONY : test_gemm_perf/fast
+
+#=============================================================================
 # Target rules for targets named test_compare
 
 # Build rule for target.
@@ -231,6 +244,7 @@ help:
 	@echo "... test_compare"
 	@echo "... test_cuda_allocator"
 	@echo "... test_cuda_mat"
+	@echo "... test_gemm_perf"
 	@echo "... test_mat"
 	@echo "... test_matmul"
 .PHONY : help

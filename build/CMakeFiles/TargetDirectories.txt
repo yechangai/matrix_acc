@@ -10,6 +10,7 @@
 /home/chang/Desktop/matrix_acc/build/test/CMakeFiles/test_cuda_allocator.dir
 /home/chang/Desktop/matrix_acc/build/test/CMakeFiles/test_cuda_mat.dir
 /home/chang/Desktop/matrix_acc/build/test/CMakeFiles/test_matmul.dir
+/home/chang/Desktop/matrix_acc/build/test/CMakeFiles/test_gemm_perf.dir
 /home/chang/Desktop/matrix_acc/build/test/CMakeFiles/test_compare.dir
 /home/chang/Desktop/matrix_acc/build/test/CMakeFiles/test.dir
 /home/chang/Desktop/matrix_acc/build/test/CMakeFiles/edit_cache.dir

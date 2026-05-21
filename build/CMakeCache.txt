@@ -435,7 +435,7 @@ CUDA_pcsamplingutil_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libpcsamplingutil
 NCNN_CUDA:BOOL=ON
 
 //build with threads
-NCNN_THREADS:BOOL=ON
+NCNN_THREADS:BOOL=1
 
 //Path to a library.
 OPENBLAS_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libopenblas.so

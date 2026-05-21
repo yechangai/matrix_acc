@@ -14,5 +14,7 @@ add_test([=[cuda_mat_test]=] "/home/chang/Desktop/matrix_acc/build/test/test_cud
 set_tests_properties([=[cuda_mat_test]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/chang/Desktop/matrix_acc/test/CMakeLists.txt;86;add_test;/home/chang/Desktop/matrix_acc/test/CMakeLists.txt;0;")
 add_test([=[matmul_test]=] "/home/chang/Desktop/matrix_acc/build/test/test_matmul")
 set_tests_properties([=[matmul_test]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/chang/Desktop/matrix_acc/test/CMakeLists.txt;113;add_test;/home/chang/Desktop/matrix_acc/test/CMakeLists.txt;0;")
+add_test([=[gemm_perf_test]=] "/home/chang/Desktop/matrix_acc/build/test/test_gemm_perf")
+set_tests_properties([=[gemm_perf_test]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/chang/Desktop/matrix_acc/test/CMakeLists.txt;157;add_test;/home/chang/Desktop/matrix_acc/test/CMakeLists.txt;0;")
 add_test([=[compare_test]=] "/home/chang/Desktop/matrix_acc/build/test/test_compare")
-set_tests_properties([=[compare_test]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/chang/Desktop/matrix_acc/test/CMakeLists.txt;152;add_test;/home/chang/Desktop/matrix_acc/test/CMakeLists.txt;0;")
+set_tests_properties([=[compare_test]=] PROPERTIES  _BACKTRACE_TRIPLES "/home/chang/Desktop/matrix_acc/test/CMakeLists.txt;198;add_test;/home/chang/Desktop/matrix_acc/test/CMakeLists.txt;0;")
